@@ -19,5 +19,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^1.0.2"
   }
 }

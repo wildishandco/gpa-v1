@@ -20,9 +20,10 @@ const MyApp = ({ Component, pageProps }) => {
     <ApolloProvider client={apolloClient}>
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/lho7obo.css" />
+        <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       {menuOpen && <Navigation />}
-      <Layout title="GPA">
+      <Layout>
         <Component {...pageProps} menuOpen={menuOpen} />
       </Layout>
     </ApolloProvider>

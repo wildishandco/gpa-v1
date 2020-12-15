@@ -5,68 +5,24 @@ import Footer from "@components/Footer";
 import SliceZone from "@components/SliceZone/SliceZone";
 import Image from "next/image";
 
-export default function Home({ homepage }) {
-  console.log(homepage.data.body[0]);
+export default function Home({ menuOpen, homepage }) {
+  console.log(menuOpen);
   return (
     <div className="container">
       <Head>
-        <title>Next + Prismic Starter</title>
+        <title>Good People Agency</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <Header />
-        <div className="posts">
-          {homepage.data.body && <SliceZone allSlices={homepage.data.body} />}
-          <Image
-            src={homepage.data.hero_image.url}
-            alt="Image"
-            layout="responsive"
-            width="200"
-            height="200"
-          />
-        </div>
-      </main>
-
-      <Footer />
-
-      <style jsx>{`
-        .container {
-          height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .posts {
-          display: flex;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      <div>
+        {homepage.data.body && <SliceZone allSlices={homepage.data.body} />}
+        <Image
+          src={homepage.data.hero_image.url}
+          alt="Image"
+          layout="responsive"
+          width="200"
+          height="200"
+        />
+      </div>
     </div>
   );
 }

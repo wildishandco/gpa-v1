@@ -1,9 +1,18 @@
 import { client } from "@utils/prismicPosts";
 import Prismic from "prismic-javascript";
+import Head from "next/head";
 
 export default function BrandPage({ data }) {
   console.log(data);
-  return <div>Brand page</div>;
+
+  return (
+    <>
+      <Head>
+        <title> | Good People Agency</title>
+      </Head>
+      <div>Brand page</div>
+    </>
+  );
 }
 
 export async function getStaticProps({ params }) {

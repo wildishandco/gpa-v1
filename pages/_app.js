@@ -61,7 +61,7 @@ const MyApp = ({ Component, pageProps }) => {
       <motion.main initial={{ x: 0 }} animate={{ x: menuOpen ? "50%" : 0 }}>
         <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Component {...pageProps} menuOpen={menuOpen} />
-        <InstaFeed />
+        {/* <InstaFeed /> */}
         <Footer />
       </motion.main>
     </ApolloProvider>

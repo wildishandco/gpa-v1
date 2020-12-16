@@ -18,11 +18,13 @@ const MENU_QUERY = gql`
   }
 `;
 
-const NavWrapper = styled.nav`
-  position: fixed;
+const NavInner = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
-  background: blue;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `;
 
 export default function Navigation() {
@@ -32,7 +34,7 @@ export default function Navigation() {
   if (error) return null;
 
   return (
-    <NavWrapper>
+    <NavInner>
       {data.allBrand_pages.edges.map((menuItem, i) => {
         return (
           <Link key={i} href={`/${menuItem.node._meta.uid}`}>
@@ -40,6 +42,6 @@ export default function Navigation() {
           </Link>
         );
       })}
-    </NavWrapper>
+    </NavInner>
   );
 }

@@ -14,6 +14,7 @@ const HeroSection = styled.section`
   overflow: hidden;
   color: var(--background);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   .hero-image {
@@ -36,21 +37,31 @@ const HeroSection = styled.section`
       left: 0;
       bottom: 0;
       right: 0;
-      background: rgba(43, 43, 43, 0.4);
+      background: rgba(43, 43, 43, 0.8);
       opacity: 0.2;
-      z-index: -1;
+      z-index: 1;
     }
+  }
+  .brand-logo {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    width: 70%;
+    padding-top: 30vh;
   }
   h2 {
     display: inline-block;
     position: relative;
     z-index: 2;
+    padding-top: 30vh;
+    padding-bottom: 5vh;
   }
 `;
 
 const VisitSection = styled.section`
   width: 100%;
   min-height: 70vh;
+  position: relative;
 `;
 
 export default function BrandPage({ data }) {
@@ -71,6 +82,11 @@ export default function BrandPage({ data }) {
           />
           <div className="image-overlay" />
         </div>
+        <img
+          src={data.brand_logo.url}
+          alt={data.brand_logo.alt}
+          className="brand-logo"
+        />
         <h2>{data.tagline[0].text}</h2>
       </HeroSection>
       <Wrapper>

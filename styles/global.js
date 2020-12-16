@@ -8,6 +8,7 @@ const global = css`
     --body: itc-american-typewriter, serif;
     --background: #fafaef;
     --copycolor: #2b2b2b;
+    --yellow: #f0b945;
   }
 
   body {
@@ -16,6 +17,7 @@ const global = css`
     font-weight: 500;
     background-color: var(--background);
     color: var(--copycolor);
+    font-size: 18px;
   }
 
   h1,
@@ -31,6 +33,14 @@ const global = css`
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  button {
+    font-size: 18px;
+    font-family: var(--body);
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
   }
 `;
 

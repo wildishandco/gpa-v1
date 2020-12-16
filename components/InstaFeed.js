@@ -21,7 +21,7 @@ export default function InstaFeed() {
   return (
     <Wrapper>
       <StyledFeed
-        userName="grltsdy"
+        userName="goodpeopleagency"
         className="Feed"
         classNameLoading="Loading"
         limit="9"

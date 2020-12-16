@@ -35,7 +35,7 @@ export default function Navigation() {
     <NavWrapper>
       {data.allBrand_pages.edges.map((menuItem, i) => {
         return (
-          <Link href={`/${menuItem.node._meta.uid}`}>
+          <Link key={i} href={`/${menuItem.node._meta.uid}`}>
             {RichText.asText(menuItem.node.brand_name)}
           </Link>
         );

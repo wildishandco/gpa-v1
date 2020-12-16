@@ -15,13 +15,7 @@ export default function Home({ menuOpen, homepage }) {
       </Head>
       <div>
         {homepage.data.body && <SliceZone allSlices={homepage.data.body} />}
-        <Image
-          src={homepage.data.hero_image.url}
-          alt="Image"
-          layout="responsive"
-          width="200"
-          height="200"
-        />
+        <Image src={homepage.data.hero_image.url} alt="Image" layout="fill" />
       </div>
     </div>
   );

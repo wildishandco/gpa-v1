@@ -1,7 +1,7 @@
 import { client } from "@utils/prismicPosts";
 import Prismic from "prismic-javascript";
 import Head from "next/head";
-import { RichText } from "prismic-reactjs";
+// import { RichText } from "prismic-reactjs";
 import styled from "styled-components";
 import Image from "next/image";
 import Wrapper from "@components/Wrapper";
@@ -66,8 +66,7 @@ export default function BrandPage({ data }) {
           <Image
             src={data.hero_image.url}
             alt={data.hero_image.alt}
-            unsized
-            layout="responsive"
+            layout="fill"
             className="image-container"
           />
           <div className="image-overlay" />
@@ -81,8 +80,7 @@ export default function BrandPage({ data }) {
         <Image
           src={data.background_image.url}
           alt={data.background_image.alt}
-          unsized
-          layout="responsive"
+          layout="fill"
         />
       </VisitSection>
     </>

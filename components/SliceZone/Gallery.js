@@ -9,8 +9,7 @@ export default function Gallery({ input }) {
             key={i}
             src={image.gallery_image.url}
             alt={image.gallery_image.alt}
-            unsized
-            layout="responsive"
+            layout="fill"
           />
         );
       })}

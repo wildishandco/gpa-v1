@@ -12,11 +12,13 @@ const Content = styled.div`
 export default class SliceZone extends Component {
   render() {
     const { allSlices } = this.props;
-    const slice = allSlices.map((s) => {
+    const slice = allSlices.map((s, i) => {
       switch (s.slice_type) {
         // These are the API IDs of the slices
         case "copy":
-          return s.items[0].copy ? <BodyText input={s.items[0].copy} /> : null;
+          return s.items[0].copy ? (
+            <BodyText key={i} input={s.items[0].copy} />
+          ) : null;
         default:
           return null;
       }

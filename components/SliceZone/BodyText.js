@@ -1,7 +1,7 @@
 import { RichText } from "prismic-reactjs";
 import styled from "styled-components";
 
-export const BodyContent = styled.div`
+const BodyContent = styled.div`
   max-width: 780px;
   margin: 60px auto;
   p {
@@ -10,7 +10,7 @@ export const BodyContent = styled.div`
 `;
 
 const BodyText = ({ input }) => (
-  <div className="">{RichText.render(input)}</div>
+  <BodyContent>{RichText.render(input)}</BodyContent>
 );
 
 export default BodyText;

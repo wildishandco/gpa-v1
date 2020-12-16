@@ -9,7 +9,8 @@ import SliceZoneUid from "@components/SliceZone/SliceZoneUid";
 
 const HeroSection = styled.section`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 500px;
   position: relative;
   overflow: hidden;
   color: var(--background);
@@ -48,6 +49,7 @@ const HeroSection = styled.section`
     z-index: 2;
     width: 70%;
     padding-top: 30vh;
+    max-width: 800px;
   }
   h2 {
     display: inline-block;
@@ -62,6 +64,16 @@ const VisitSection = styled.section`
   width: 100%;
   min-height: 70vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .visit-image {
+    z-index: -1;
+  }
+  .visit-link {
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 export default function BrandPage({ data }) {
@@ -97,7 +109,15 @@ export default function BrandPage({ data }) {
           src={data.background_image.url}
           alt={data.background_image.alt}
           layout="fill"
+          className="visit-image"
         />
+        <a
+          className="visit-link"
+          href={data.brand_website_url.url}
+          target="_blank"
+        >
+          Visit {data.brand_name[0].text}
+        </a>
       </VisitSection>
     </>
   );

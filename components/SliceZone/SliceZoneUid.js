@@ -4,10 +4,7 @@ import BodyText from "@components/SliceZone/BodyText";
 import Gallery from "@components/SliceZone/Gallery";
 
 const Content = styled.div`
-  padding: 100px 0 0 0;
-  @media screen and (max-width: 768px) {
-    padding: 50px 0 0 0;
-  }
+  padding: 50px 0;
 `;
 
 export default class SliceZoneUid extends Component {

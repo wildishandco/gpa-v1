@@ -25,12 +25,24 @@ const NavWrapper = styled(motion.nav)`
   left: 0;
   top: 0;
   bottom: 0;
+  background: var(--secondary);
+  z-index: 9999;
+`;
+
+const ContactWrapper = styled(motion.nav)`
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
   background: var(--yellow);
   z-index: 9999;
 `;
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, router }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const apolloClient = new ApolloClient({
     link: PrismicLink({
@@ -52,18 +64,52 @@ const MyApp = ({ Component, pageProps }) => {
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
+            transition={{ duration: 0.4 }}
             onClick={() => setMenuOpen(false)}
           >
             <Navigation />
           </NavWrapper>
         )}
+        {contactOpen && (
+          <ContactWrapper
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4 }}
+            onClick={() => setContactOpen(false)}
+          ></ContactWrapper>
+        )}
       </AnimatePresence>
-      <motion.main initial={{ x: 0 }} animate={{ x: menuOpen ? "50%" : 0 }}>
-        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Component {...pageProps} menuOpen={menuOpen} />
-        {/* <InstaFeed /> */}
-        <Footer />
-      </motion.main>
+      <motion.div
+        style={{ position: "relative" }}
+        initial={{ x: 0 }}
+        animate={{
+          x: menuOpen ? "50%" : contactOpen ? "-50%" : 0,
+        }}
+        transition={{ duration: 0.4 }}
+      >
+        <Header
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          contactOpen={contactOpen}
+          setContactOpen={setContactOpen}
+        />
+        <AnimatePresence>
+          <motion.main
+            key={router.asPath}
+            exit={{
+              x: "-100%",
+              transition: {
+                duration: 0.7,
+              },
+            }}
+          >
+            <Component {...pageProps} menuOpen={menuOpen} />
+            {/* <InstaFeed /> */}
+            <Footer />
+          </motion.main>
+        </AnimatePresence>
+      </motion.div>
     </ApolloProvider>
   );
 };

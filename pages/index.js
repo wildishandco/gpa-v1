@@ -5,6 +5,8 @@ import SliceZone from "@components/SliceZone/SliceZone";
 import Image from "next/image";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
+import Team from "@components/Team";
+import Events from "@components/Events";
 
 const OverlayStyles = styled(motion.div)`
   position: fixed;
@@ -16,8 +18,10 @@ const OverlayStyles = styled(motion.div)`
   z-index: 999;
 `;
 
-export default function Home({ menuOpen, homepage }) {
+export default function Home({ menuOpen, homepage, team, events }) {
   const [finishLoading, setFinishLoading] = useState(true);
+
+  console.log(team);
 
   useEffect(() => {
     setTimeout(() => {
@@ -52,6 +56,8 @@ export default function Home({ menuOpen, homepage }) {
           width="100%"
           height="100%"
         />
+        <Events events={events} />
+        <Team team={team} />
       </div>
     </>
   );
@@ -59,10 +65,13 @@ export default function Home({ menuOpen, homepage }) {
 
 export async function getStaticProps() {
   const homepage = await client.getSingle("homepage");
-
+  const team = await client.getSingle("team");
+  const events = await client.getSingle("events");
   return {
     props: {
       homepage,
+      team,
+      events,
     },
   };
 }

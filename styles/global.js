@@ -9,6 +9,7 @@ const global = css`
     --background: #fafaef;
     --copycolor: #2b2b2b;
     --yellow: #f0b945;
+    --secondary: #282528;
   }
 
   body {
@@ -40,6 +41,9 @@ const global = css`
     font-family: var(--body);
     font-style: normal;
     font-weight: 500;
+    cursor: pointer;
+  }
+  a {
     cursor: pointer;
   }
 `;

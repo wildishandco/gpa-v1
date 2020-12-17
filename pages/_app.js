@@ -11,7 +11,8 @@ import Footer from "@components/Footer";
 import { createGlobalStyle } from "styled-components";
 import reset from "../styles/reset";
 import global from "../styles/global";
-import InstaFeed from "@components/InstaFeed";
+import Loader from "@components/Loader";
+import Social from "@components/Social";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -20,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
 
 const NavWrapper = styled(motion.nav)`
   position: fixed;
-  width: 50%;
+  width: 100%;
   height: 100%;
   left: 0;
   top: 0;
@@ -46,7 +47,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
   const apolloClient = new ApolloClient({
     link: PrismicLink({
-      uri: "https://good-people-agency.prismic.io/graphql",
+      uri: process.env.NEXT_PUBLIC_PRISMIC_URL,
     }),
     cache: new InMemoryCache(),
   });
@@ -58,6 +59,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       <GlobalStyles />
+      <Loader />
       <AnimatePresence>
         {menuOpen && (
           <NavWrapper
@@ -84,7 +86,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         style={{ position: "relative" }}
         initial={{ x: 0 }}
         animate={{
-          x: menuOpen ? "50%" : contactOpen ? "-50%" : 0,
+          x: menuOpen ? "100%" : contactOpen ? "-50%" : 0,
         }}
         transition={{ duration: 0.4 }}
       >
@@ -98,14 +100,16 @@ const MyApp = ({ Component, pageProps, router }) => {
           <motion.main
             key={router.asPath}
             exit={{
-              x: "-100%",
-              transition: {
-                duration: 0.7,
-              },
+              opacity: 0,
             }}
           >
-            <Component {...pageProps} menuOpen={menuOpen} />
-            {/* <InstaFeed /> */}
+            <Component
+              menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
+              {...pageProps}
+              menuOpen={menuOpen}
+            />
+            <Social />
             <Footer />
           </motion.main>
         </AnimatePresence>

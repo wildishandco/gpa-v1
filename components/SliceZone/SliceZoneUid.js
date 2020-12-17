@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import BodyText from "@components/SliceZone/BodyText";
 import Gallery from "@components/SliceZone/Gallery";
+import Wrapper from "@components/Wrapper";
 
 const Content = styled.div`
-  padding: 50px 0;
+
 `;
 
 export default class SliceZoneUid extends Component {
@@ -24,6 +25,10 @@ export default class SliceZoneUid extends Component {
           return null;
       }
     });
-    return <Content>{slice}</Content>;
+    return (
+      <Wrapper>
+        <Content>{slice}</Content>
+      </Wrapper>
+    )
   }
 }

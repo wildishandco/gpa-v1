@@ -19,6 +19,9 @@ const global = css`
     background-color: var(--background);
     color: var(--copycolor);
     font-size: 18px;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   h1,
@@ -36,15 +39,67 @@ const global = css`
     object-fit: cover;
   }
 
+  h2 {
+    font-size: 2.5rem;
+    @media screen and (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
   button {
     font-size: 18px;
     font-family: var(--body);
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--background);
+    border: 1px rgba(0, 0, 0, 0) solid;
+    transition: 0.3s ease;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 12px;
+    }
+    :hover,
+    :focus {
+      border: 1px var(--yellow) solid;
+      outline: none;
+      box-shadow: 5px 5px 1px var(--secondary);
+      background: var(--yellow);
+    }
+    :active {
+      box-shadow: 0px 0px 0px var(--secondary);
+    }
   }
   a {
     cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+    :hover {
+      text-decoration: underline;
+    }
+  }
+  .candice {
+    font-family: "Candice";
+  }
+
+  .alice-carousel__dots-item:not(.__custom):hover,
+  .alice-carousel__dots-item:not(.__custom).__active {
+    background-color: var(--yellow) !important;
+  }
+
+  .alice-carousel__dots-item:not(.__custom) {
+    background-color: transparent !important;
+    border: 1px var(--yellow) solid !important;
+    width: 10px !important;
+    height: 10px !important;
   }
 `;
 

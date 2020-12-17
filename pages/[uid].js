@@ -1,13 +1,11 @@
 import { client } from "@utils/prismicPosts";
 import Prismic from "prismic-javascript";
 import Head from "next/head";
-// import { RichText } from "prismic-reactjs";
 import styled from "styled-components";
 import Image from "next/image";
-import Wrapper from "@components/Wrapper";
 import SliceZoneUid from "@components/SliceZone/SliceZoneUid";
 
-const HeroSection = styled.section`
+export const HeroSection = styled.section`
   width: 100%;
   height: 100vh;
   min-height: 500px;
@@ -32,16 +30,6 @@ const HeroSection = styled.section`
       right: 0;
       z-index: -1;
     }
-    .image-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: rgba(43, 43, 43, 0.8);
-      opacity: 0.2;
-      z-index: 1;
-    }
   }
   .brand-logo {
     display: inline-block;
@@ -50,17 +38,43 @@ const HeroSection = styled.section`
     width: 70%;
     padding-top: 30vh;
     max-width: 800px;
+    @media screen and (max-width: 768px) {
+      width: 90%;
+    }
   }
   h2 {
     display: inline-block;
     position: relative;
     z-index: 2;
-    padding-top: 30vh;
-    padding-bottom: 5vh;
+    text-align: center;
+    padding: 30vh 30px 5vh 30px;
+  }
+  h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 6rem;
+    max-width: 375px;
+    text-align: center;
+    line-height: 0.9;
+    padding: 0 30px;
+    @media screen and (max-width: 768px) {
+      font-size: 4.5rem;
+    }
   }
 `;
 
-const VisitSection = styled.section`
+export const ImageOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(43, 43, 43, 0.8);
+  opacity: 0.2;
+  z-index: 1;
+`;
+
+export const VisitSection = styled.section`
   width: 100%;
   min-height: 70vh;
   position: relative;
@@ -73,6 +87,24 @@ const VisitSection = styled.section`
   .visit-link {
     position: relative;
     z-index: 1;
+    font-family: var(--cooper);
+    font-size: 3rem;
+    color: var(--background);
+    padding: 0 30px;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+  button {
+    position: relative;
+    z-index: 1;
+    font-family: var(--cooper);
+    font-size: 3rem;
+    @media screen and (max-width: 768px) {
+      font-size: 2.2rem;
+      margin: 0 30px;
+    }
   }
 `;
 
@@ -92,7 +124,7 @@ export default function BrandPage({ data }) {
             layout="fill"
             className="image-container"
           />
-          <div className="image-overlay" />
+          <ImageOverlay />
         </div>
         <img
           src={data.brand_logo.url}
@@ -101,9 +133,7 @@ export default function BrandPage({ data }) {
         />
         <h2>{data.tagline[0].text}</h2>
       </HeroSection>
-      <Wrapper>
-        <SliceZoneUid allSlices={data.body} />
-      </Wrapper>
+      <SliceZoneUid allSlices={data.body} />
       <VisitSection>
         <Image
           src={data.background_image.url}
@@ -111,6 +141,7 @@ export default function BrandPage({ data }) {
           layout="fill"
           className="visit-image"
         />
+        <ImageOverlay />
         <a
           className="visit-link"
           href={data.brand_website_url.url}

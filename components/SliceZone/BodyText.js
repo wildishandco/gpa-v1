@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const BodyContent = styled.div`
   max-width: 780px;
-  margin: 60px auto;
+  margin: 0 auto;
   p {
-    margin: 30px auto;
+    margin: 60px auto;
   }
 `;
 

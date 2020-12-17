@@ -59,7 +59,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       <GlobalStyles />
-      <Loader />
+      <Loader setMenuOpen={setMenuOpen} />
       <AnimatePresence>
         {menuOpen && (
           <NavWrapper
@@ -99,9 +99,9 @@ const MyApp = ({ Component, pageProps, router }) => {
         <AnimatePresence>
           <motion.main
             key={router.asPath}
-            exit={{
-              opacity: 0,
-            }}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
           >
             <Component
               menuOpen={menuOpen}

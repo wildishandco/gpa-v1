@@ -47,7 +47,7 @@ const Loader = ({ setMenuOpen }) => {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 1 }}
           >
             <svg width="302.748" height="113.535" viewBox="0 0 302.748 113.535">
               <g data-name="Group 54" transform="translate(-86.306 10.41)">

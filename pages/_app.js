@@ -44,6 +44,7 @@ const ContactWrapper = styled(motion.nav)`
 const MyApp = ({ Component, pageProps, router }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const apolloClient = new ApolloClient({
     link: PrismicLink({
@@ -59,7 +60,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       <GlobalStyles />
-      <Loader setMenuOpen={setMenuOpen} />
+      <Loader setMenuOpen={setMenuOpen} setLoader={setLoader} />
       <AnimatePresence>
         {menuOpen && (
           <NavWrapper
@@ -107,8 +108,9 @@ const MyApp = ({ Component, pageProps, router }) => {
             <Component
               menuOpen={menuOpen}
               setMenuOpen={setMenuOpen}
+              loader={loader}
+              setLoader={setLoader}
               {...pageProps}
-              menuOpen={menuOpen}
             />
             <Social />
             <Footer />

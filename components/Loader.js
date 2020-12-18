@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 
-const OverlayStyles = styled(motion.div)`
+export const OverlayStyles = styled(motion.div)`
   position: fixed;
   left: 0;
   top: 0;
@@ -18,16 +18,15 @@ const OverlayStyles = styled(motion.div)`
   justify-content: center;
 `;
 
-const Loader = ({ setMenuOpen }) => {
+const Loader = ({ setMenuOpen, setLoader }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(router);
 
   useEffect(() => {
     router.events.on("routeChangeStart", () => {
       setIsLoading(true);
       setMenuOpen(false);
+      setLoader(false);
     });
 
     router.events.on("routeChangeComplete", () => {

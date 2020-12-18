@@ -101,6 +101,34 @@ const global = css`
     width: 10px !important;
     height: 10px !important;
   }
+  .iframe-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      transform: scale(1.3);
+      @media (max-aspect-ratio: 4/3) {
+        display: none;
+      }
+      @media (min-aspect-ratio: 20/9) {
+        transform: scale(1.5);
+      }
+      @media (max-aspect-ratio: 8/5) {
+        transform: scale(1.5);
+      }
+    }
+  }
 `;
 
 export default global;

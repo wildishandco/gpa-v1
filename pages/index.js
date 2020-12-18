@@ -27,6 +27,8 @@ export default function Home({
     }, 800);
   }, []);
 
+  console.log(homepage.data.hero_video.embed_url);
+
   return (
     <>
       <Head>
@@ -42,6 +44,11 @@ export default function Home({
             layout="fill"
             className="image-container"
           />
+          {homepage.data.hero_video.embed_url && (
+            <div className="iframe-container">
+              <iframe src={homepage.data.hero_video.embed_url} />
+            </div>
+          )}
           <ImageOverlay />
         </div>
         <h1>

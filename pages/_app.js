@@ -13,6 +13,8 @@ import reset from "../styles/reset";
 import global from "../styles/global";
 import Loader from "@components/Loader";
 import Social from "@components/Social";
+import Contact from "@components/Contact";
+import { useMediaQuery } from "@react-hook/media-query";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -39,12 +41,16 @@ const ContactWrapper = styled(motion.nav)`
   bottom: 0;
   background: var(--yellow);
   z-index: 9999;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const MyApp = ({ Component, pageProps, router }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [loader, setLoader] = useState(true);
+  const matches = useMediaQuery("only screen and (min-width: 768px)");
 
   const apolloClient = new ApolloClient({
     link: PrismicLink({
@@ -52,6 +58,8 @@ const MyApp = ({ Component, pageProps, router }) => {
     }),
     cache: new InMemoryCache(),
   });
+
+  console.log(router);
 
   return (
     <ApolloProvider client={apolloClient}>
@@ -68,9 +76,8 @@ const MyApp = ({ Component, pageProps, router }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.4 }}
-            onClick={() => setMenuOpen(false)}
           >
-            <Navigation />
+            <Navigation setMenuOpen={setMenuOpen} />
           </NavWrapper>
         )}
         {contactOpen && (
@@ -79,15 +86,22 @@ const MyApp = ({ Component, pageProps, router }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            onClick={() => setContactOpen(false)}
-          ></ContactWrapper>
+          >
+            <Contact setContactOpen={setContactOpen} />
+          </ContactWrapper>
         )}
       </AnimatePresence>
       <motion.div
         style={{ position: "relative" }}
         initial={{ x: 0 }}
         animate={{
-          x: menuOpen ? "100%" : contactOpen ? "-50%" : 0,
+          x: menuOpen
+            ? "100%"
+            : matches && contactOpen
+            ? "-50%"
+            : !matches && contactOpen
+            ? "-100%"
+            : 0,
         }}
         transition={{ duration: 0.4 }}
       >

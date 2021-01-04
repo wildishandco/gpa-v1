@@ -7,7 +7,7 @@ import Wrapper from "./Wrapper";
 
 const handleDragStart = (e) => e.preventDefault();
 
-const EventHeader = styled.h2`
+ const EventHeader = styled.h2`
   font-family: "Candice";
   color: var(--yellow);
   font-size: 4rem;

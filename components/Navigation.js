@@ -78,13 +78,9 @@ const NavInner = styled.div`
   }
 `;
 
-export default function Navigation() {
+export default function Navigation({ setMenuOpen }) {
   const { loading, error, data } = useQuery(MENU_QUERY);
   const [showImage, setShowImage] = useState(0);
-
-  console.log(data, "menu");
-
-  console.log(showImage, "mouse");
 
   if (loading) return null;
   if (error)
@@ -209,7 +205,7 @@ export default function Navigation() {
               </g>
             </svg>
           </Link>
-          <button>Close</button>
+          <button onClick={() => setMenuOpen(false)}>Close</button>
         </div>
         {data.allBrand_pages.edges.map((menuItem, i) => {
           return (

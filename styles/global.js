@@ -82,6 +82,7 @@ const global = css`
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s ease;
+    color: inherit;
     :hover {
       text-decoration: underline;
     }
@@ -123,6 +124,12 @@ const global = css`
       }
       @media (min-aspect-ratio: 20/9) {
         transform: scale(1.5);
+      }
+      @media (min-aspect-ratio: 20/8) {
+        display: none;
+      }
+      @media screen and (max-height: 400px) {
+        display: none;
       }
       @media (max-aspect-ratio: 8/5) {
         transform: scale(1.5);

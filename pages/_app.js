@@ -93,7 +93,7 @@ const MyApp = ({ Component, pageProps, router }) => {
       </AnimatePresence>
       <motion.div
         style={{ position: "relative" }}
-        initial={{ x: 0 }}
+        initial={{ x: 0, y: 0 }}
         animate={{
           x: menuOpen
             ? "100%"
@@ -102,6 +102,7 @@ const MyApp = ({ Component, pageProps, router }) => {
             : !matches && contactOpen
             ? "-100%"
             : 0,
+          y: 0,
         }}
         transition={{ duration: 0.4 }}
       >

@@ -1,7 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContactFormStyles = styled.div``;
+const ContactFormStyles = styled.div`
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    input,
+    textarea {
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid var(--copycolor);
+      margin-bottom: 1.5rem;
+      padding: 8px 0;
+      ::placeholder {
+        color: var(--copycolor);
+        font-size: 16px;
+        font-family: var(--body);
+      }
+    }
+  }
+`;
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -16,47 +36,45 @@ export default class ContactForm extends React.Component {
     const { status } = this.state;
     return (
       <ContactFormStyles>
-        <div className="form-inner">
-          <form
-            onSubmit={this.submitForm}
-            action="https://formspree.io/f/xpzokajq"
-            method="POST"
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New message from website"
-            ></input>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              style={{ width: "100%" }}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              name="_replyto"
-              style={{ width: "100%" }}
-            />
-            <textarea
-              placeholder="Message"
-              rows="4"
-              name="message"
-              style={{ width: "100%" }}
-            />
-            {status === "SUCCESS" ? (
-              <p style={{ color: "var(--white)" }}>Thanks!</p>
-            ) : (
-              <button className="submit">Submit</button>
-            )}
-            {status === "ERROR" && (
-              <p style={{ color: "var(--white)", marginTop: 20 }}>
-                Ooops! There was an error.
-              </p>
-            )}
-          </form>
-        </div>
+        <form
+          onSubmit={this.submitForm}
+          action="https://formspree.io/f/xpzokajq"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from website"
+          ></input>
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            style={{ width: "100%" }}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            name="_replyto"
+            style={{ width: "100%" }}
+          />
+          <textarea
+            placeholder="Message"
+            rows="5"
+            name="message"
+            style={{ width: "100%" }}
+          />
+          {status === "SUCCESS" ? (
+            <p style={{ color: "var(--copycolor)" }}>Thanks!</p>
+          ) : (
+            <button className="submit">Submit</button>
+          )}
+          {status === "ERROR" && (
+            <p style={{ color: "var(--white)", marginTop: 20 }}>
+              Ooops! There was an error.
+            </p>
+          )}
+        </form>
       </ContactFormStyles>
     );
   }

@@ -12,7 +12,6 @@ export default class SliceZoneUid extends Component {
   render() {
     const { allSlices } = this.props;
     const slice = allSlices.map((s, i) => {
-      console.log(allSlices);
       switch (s.slice_type) {
         // These are the API IDs of the slices
         case "copy":

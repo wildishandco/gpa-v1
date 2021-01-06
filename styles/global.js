@@ -59,7 +59,7 @@ const global = css`
     }
   }
 
-  button {
+  .button {
     font-size: 18px;
     font-family: var(--body);
     font-style: normal;
@@ -80,6 +80,7 @@ const global = css`
     @media screen and (max-width: 480px) {
       padding: 12px;
     }
+
     :hover,
     :focus {
       border: 1px var(--yellow) solid;
@@ -91,13 +92,107 @@ const global = css`
       box-shadow: 0px 0px 0px var(--secondary);
     }
   }
+
+  .showroom-button {
+    font-size: 18px;
+    font-family: var(--body);
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--copycolor);
+    border: 1px rgba(0, 0, 0, 0) solid;
+    transition: 0.3s ease;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 12px;
+    }
+
+    :hover,
+    :focus {
+      border: 1px var(--yellow) solid;
+      outline: none;
+      box-shadow: 5px 5px 1px var(--secondary);
+      background: var(--yellow);
+    }
+    :active {
+      box-shadow: 0px 0px 0px var(--secondary);
+    }
+  }
+
+  .submit {
+    font-size: 18px;
+    font-family: var(--body);
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    border-bottom: 2px rgba(0, 0, 0, 0) solid;
+    transition: 0.3s ease;
+    text-align: center;
+    color: var(--copycolor);
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 12px;
+    }
+    :after {
+      content: ">";
+      display: inline-block;
+      padding-left: 0.5rem;
+    }
+    :hover,
+    :focus {
+      border-bottom: 2px solid var(--copycolor);
+    }
+  }
+
+  .button-alt {
+    font-size: 18px;
+    font-family: var(--body);
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    border: 2px rgba(0, 0, 0, 0) solid;
+    transition: 0.3s ease;
+    text-align: center;
+    padding: 18px;
+    color: var(--background);
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 12px;
+    }
+    :hover,
+    :focus {
+      border: 2px solid var(--background);
+    }
+  }
+
   a {
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s ease;
     color: inherit;
+    border-bottom: rgba(0, 0, 0, 0) 2px solid;
     :hover {
-      text-decoration: underline;
+      border-bottom: var(--copycolor) 2px solid;
     }
   }
   .candice {

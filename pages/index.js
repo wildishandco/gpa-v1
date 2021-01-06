@@ -15,7 +15,6 @@ export default function Home({
   homepage,
   team,
   events,
-  brands,
   menuOpen,
   setMenuOpen,
   loader,
@@ -27,7 +26,7 @@ export default function Home({
     }, 800);
   }, []);
 
-  console.log(homepage.data.hero_video.embed_url);
+  console.log(homepage);
 
   return (
     <>
@@ -53,15 +52,12 @@ export default function Home({
         </div>
         <h1>
           friends <span className="candice">Not</span> fashion
-          {/* <form method="get" action={homepage.data.pdf.url} target="_blank">
-            <button type="submit">Download!</button>
-          </form> */}
         </h1>
       </HeroSection>
       {homepage.data.body && <SliceZone allSlices={homepage.data.body} />}
       {events && <Events events={events} />}
       {team && <Team team={team} />}
-      {brands && <Brands brands={brands} />}
+      <Brands brands={homepage.data} />
       <ViewBrands
         image={homepage.data.view_brands_image}
         menuOpen={menuOpen}
@@ -75,13 +71,11 @@ export async function getStaticProps() {
   const homepage = await client.getSingle("homepage");
   const team = await client.getSingle("team");
   const events = await client.getSingle("events");
-  const brands = await client.getSingle("brandshomepage");
   return {
     props: {
       homepage,
       team,
       events,
-      brands,
     },
   };
 }

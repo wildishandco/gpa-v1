@@ -50,10 +50,16 @@ export default function Header({
   setMenuOpen,
   contactOpen,
   setContactOpen,
+  router,
 }) {
   return (
     <HeaderStyles>
-      <button onClick={() => setMenuOpen(!menuOpen)}>Our brands</button>
+      <button
+        className={router.asPath === "/showroom" ? "showroom-button" : "button"}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        Our brands
+      </button>
       <div className="logo-fixed">
         <Link href="/">
           <svg
@@ -276,9 +282,20 @@ export default function Header({
       </div>
       <div className="right-nav">
         <Link href="/showroom">
-          <button>Showroom</button>
+          <button
+            className={
+              router.asPath === "/showroom" ? "showroom-button" : "button"
+            }
+          >
+            Showroom
+          </button>
         </Link>
-        <button onClick={() => setContactOpen(!contactOpen)}>
+        <button
+          className={
+            router.asPath === "/showroom" ? "showroom-button" : "button"
+          }
+          onClick={() => setContactOpen(!contactOpen)}
+        >
           Get in touch
         </button>
       </div>

@@ -11,7 +11,9 @@ export default function ViewBrands({ image, menuOpen, setMenuOpen }) {
         className="visit-image"
       />
       <ImageOverlay />
-      <button onClick={() => setMenuOpen(!menuOpen)}>View our brands</button>
+      <button className="button" onClick={() => setMenuOpen(!menuOpen)}>
+        View our brands
+      </button>
     </VisitSection>
   );
 }

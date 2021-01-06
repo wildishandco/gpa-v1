@@ -72,6 +72,10 @@ export const ImageOverlay = styled.div`
   background: rgba(43, 43, 43, 0.8);
   opacity: 0.2;
   z-index: 1;
+  transition: 0.3s ease;
+  :hover {
+    opacity: ${(props) => (props.hover ? "0.9" : "0.2")};
+  }
 `;
 
 export const VisitSection = styled.section`
@@ -92,6 +96,10 @@ export const VisitSection = styled.section`
     color: var(--background);
     padding: 0 30px;
     text-align: center;
+    border: none;
+    :hover {
+      text-decoration: underline;
+    }
     @media screen and (max-width: 768px) {
       font-size: 2.2rem;
     }

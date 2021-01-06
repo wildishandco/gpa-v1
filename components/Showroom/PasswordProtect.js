@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Login from "./Login";
 
-export default function PasswordProtect({ children }) {
-  const [password, setPassword] = useState("password");
+export default function PasswordProtect({ children, showroomPassword }) {
+  const [password, setPassword] = useState("");
 
-  if (password !== "password") {
-    return <Login setPassword={setPassword} />;
+  if (password !== showroomPassword) {
+    return (
+      <Login setPassword={setPassword} showroomPassword={showroomPassword} />
+    );
   }
 
   return <div>{children}</div>;

@@ -1,4 +1,3 @@
-import Wrapper from "@components/Wrapper";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -6,12 +5,33 @@ const Grid = styled.div`
   flex: 75%;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   row-gap: 30px;
   column-gap: 30px;
-  max-height: 100vh;
   overflow: scroll;
+  @media screen and (max-width: 600px) {
+    flex: 3;
+    width: 100%;
+  }
+  @media screen and (max-width: 1080px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+  .product-thumb {
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+    .price {
+      margin: 1rem 0;
+    }
+    .rrp {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export default function ProductGrid({ products, brand }) {
@@ -21,7 +41,7 @@ export default function ProductGrid({ products, brand }) {
         return (
           <>
             {p.data.brand.slug === brand || !brand || brand === "all" ? (
-              <div key={i}>
+              <div className="product-thumb" key={i}>
                 <Image
                   src={p.data.product_image.url}
                   layout="responsive"
@@ -29,6 +49,9 @@ export default function ProductGrid({ products, brand }) {
                   height="100"
                 />
                 <h3>{p.data.product_name[0].text}</h3>
+                <p className="price">{p.data.price} GBP</p>
+                <p className="rrp">RRP: {p.data.rrp} GBP</p>
+                <p className="rrp">ART NO: {p.data.article_number}</p>
               </div>
             ) : null}
           </>

@@ -46,6 +46,7 @@ const NavInner = styled.div`
   display: flex;
   flex-direction: column;
   padding: 60px;
+  overflow: scroll;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -100,7 +101,6 @@ export default function Navigation({ setMenuOpen }) {
       <NavImage>
         <AnimatePresence>
           {data.allBrand_pages.edges.map((menuImage, i) => {
-            console.log(i, "index");
             return (
               <motion.div
                 key={i}
@@ -205,7 +205,7 @@ export default function Navigation({ setMenuOpen }) {
               </g>
             </svg>
           </Link>
-          <button onClick={() => setMenuOpen(false)}>Close</button>
+          <button className="button-alt" onClick={() => setMenuOpen(false)}>Close</button>
         </div>
         {data.allBrand_pages.edges.map((menuItem, i) => {
           return (

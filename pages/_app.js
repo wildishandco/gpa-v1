@@ -41,6 +41,7 @@ const ContactWrapper = styled(motion.nav)`
   bottom: 0;
   background: var(--yellow);
   z-index: 9999;
+  overflow: scroll;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -58,8 +59,6 @@ const MyApp = ({ Component, pageProps, router }) => {
     }),
     cache: new InMemoryCache(),
   });
-
-  console.log(router);
 
   return (
     <ApolloProvider client={apolloClient}>
@@ -111,6 +110,7 @@ const MyApp = ({ Component, pageProps, router }) => {
           setMenuOpen={setMenuOpen}
           contactOpen={contactOpen}
           setContactOpen={setContactOpen}
+          router={router}
         />
         <AnimatePresence>
           <motion.main
@@ -127,7 +127,7 @@ const MyApp = ({ Component, pageProps, router }) => {
               setLoader={setLoader}
               {...pageProps}
             />
-            <Social />
+            {router.asPath !== "/showroom" && <Social />}
             <Footer />
           </motion.main>
         </AnimatePresence>

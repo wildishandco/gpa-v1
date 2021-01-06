@@ -1,8 +1,5 @@
 import Feed from "react-instagram-authless-feed";
 import styled from "styled-components";
-import Wrapper from "./Wrapper";
-
-
 
 const StyledFeed = styled(Feed)`
   display: grid;
@@ -18,12 +15,22 @@ const StyledFeed = styled(Feed)`
   }
   a {
     overflow: hidden;
-    :last-child {
+    :last-child,
+    :nth-child(7),
+    :nth-child(8) {
       @media screen and (max-width: 768px) {
         display: none;
       }
     }
-
+    :nth-child(4),
+    :nth-child(5),
+    :nth-child(6),
+    :nth-child(7),
+    :nth-child(8) {
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
+    }
     img {
       width: 100%;
       height: 100%;

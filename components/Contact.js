@@ -32,9 +32,6 @@ const ContactStyles = styled.div`
 
 const Close = styled.div`
   padding: 30px;
-  button:hover {
-    background: var(--copycolor);
-  }
 `;
 
 const ContactHeader = styled.h2`
@@ -54,7 +51,9 @@ export default function Contact({ setContactOpen }) {
   return (
     <>
       <Close>
-        <button onClick={() => setContactOpen(false)}>Close</button>
+        <button className="button-alt" onClick={() => setContactOpen(false)}>
+          Close
+        </button>
       </Close>
       <ContactStyles>
         <ContactHeader>Get in touch</ContactHeader>

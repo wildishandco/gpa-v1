@@ -14,6 +14,8 @@ const TeamInfo = styled.div`
 `;
 
 const TeamGrid = styled.div`
+  max-width: 900px;
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
@@ -35,7 +37,6 @@ const TeamGrid = styled.div`
 `;
 
 export default function Team({ team }) {
-  console.log(team);
   return (
     <Wrapper>
       <TeamInfo>

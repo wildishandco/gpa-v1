@@ -9,8 +9,8 @@ export default function Brands({ brands }) {
       <Wrapper>
         <h2 style={{ textAlign: "center" }}>{brands.brands[0].text}</h2>
         {brands.copy && <BodyText input={brands.copy} />}
-        {brands.brand_quotes && <BrandQuotes quotes={brands.brand_quotes} />}
-        {brands.brand_grid && <BrandsGrid brands={brands.brand_grid} />}
+        {brands.brand_quotes[0] && <BrandQuotes quotes={brands.brand_quotes} />}
+        {brands.brand_grid[0] && <BrandsGrid brands={brands.brand_grid} />}
       </Wrapper>
     </>
   );

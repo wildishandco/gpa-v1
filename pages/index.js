@@ -54,9 +54,9 @@ export default function Home({
           friends <span className="candice">Not</span> fashion
         </h1>
       </HeroSection>
-      {homepage.data.body && <SliceZone allSlices={homepage.data.body} />}
-      {events && <Events events={events} />}
-      {team && <Team team={team} />}
+      {homepage.data.body[0] && <SliceZone allSlices={homepage.data.body} />}
+      {events.data.body[0] && <Events events={events} />}
+      {team.data.team[0] && <Team team={team} />}
       <Brands brands={homepage.data} />
       <ViewBrands
         image={homepage.data.view_brands_image}

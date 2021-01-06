@@ -18,7 +18,7 @@ export const OverlayStyles = styled(motion.div)`
   justify-content: center;
 `;
 
-const Loader = ({ setMenuOpen, setLoader }) => {
+const Loader = ({ setMenuOpen, setLoader, setContactOpen }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,6 +27,7 @@ const Loader = ({ setMenuOpen, setLoader }) => {
       setIsLoading(true);
       setMenuOpen(false);
       setLoader(false);
+      setContactOpen(false);
     });
 
     router.events.on("routeChangeComplete", () => {

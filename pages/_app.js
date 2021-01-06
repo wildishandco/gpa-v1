@@ -67,7 +67,11 @@ const MyApp = ({ Component, pageProps, router }) => {
         <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       <GlobalStyles />
-      <Loader setMenuOpen={setMenuOpen} setLoader={setLoader} />
+      <Loader
+        setMenuOpen={setMenuOpen}
+        setLoader={setLoader}
+        setContactOpen={setContactOpen}
+      />
       <AnimatePresence>
         {menuOpen && (
           <NavWrapper

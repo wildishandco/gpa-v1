@@ -2,10 +2,6 @@ import { css } from "styled-components";
 
 const global = css`
   html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    position: relative;
     --cooper: cooper-black-std, serif;
     --body: itc-american-typewriter, serif;
     --background: #fafaef;
@@ -28,13 +24,6 @@ const global = css`
     @media screen and (max-width: 768px) {
       font-size: 16px;
     }
-  }
-
-  #__next {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    position: relative;
   }
 
   h1,

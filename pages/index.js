@@ -10,6 +10,7 @@ import ViewBrands from "@components/ViewBrands";
 import LoaderIndex from "@components/LoaderIndex";
 import { AnimatePresence } from "framer-motion";
 import Brands from "@components/Brands";
+import FadeIn from "@components/FadeIn";
 
 export default function Home({
   homepage,
@@ -54,15 +55,33 @@ export default function Home({
           friends <span className="candice">Not</span> fashion
         </h1>
       </HeroSection>
-      {homepage.data.body[0] && <SliceZone allSlices={homepage.data.body} />}
-      {events.data.body[0] && <Events events={events} />}
-      {team.data.body[0] && <Team team={team} />}
-      <Brands brands={homepage.data} />
-      <ViewBrands
-        image={homepage.data.view_brands_image}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-      />
+      <FadeIn>
+        {homepage.data.body[0] && (
+          <FadeIn>
+            <SliceZone allSlices={homepage.data.body} />
+          </FadeIn>
+        )}
+      </FadeIn>
+      {events.data.body[0] && (
+        <FadeIn>
+          <Events events={events} />
+        </FadeIn>
+      )}
+      {team.data.body[0] && (
+        <FadeIn>
+          <Team team={team} />
+        </FadeIn>
+      )}
+      <FadeIn>
+        <Brands brands={homepage.data} />
+      </FadeIn>
+      <FadeIn>
+        <ViewBrands
+          image={homepage.data.view_brands_image}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
+      </FadeIn>
     </>
   );
 }

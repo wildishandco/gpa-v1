@@ -3,10 +3,9 @@ import styled from "styled-components";
 import BodyText from "@components/SliceZone/BodyText";
 import Gallery from "@components/SliceZone/Gallery";
 import Wrapper from "@components/Wrapper";
+import FadeIn from "@components/FadeIn";
 
-const Content = styled.div`
-
-`;
+const Content = styled.div``;
 
 export default class SliceZoneUid extends Component {
   render() {
@@ -16,10 +15,16 @@ export default class SliceZoneUid extends Component {
         // These are the API IDs of the slices
         case "copy":
           return s.primary.copy ? (
-            <BodyText key={i} input={s.primary.copy} />
+            <FadeIn>
+              <BodyText key={i} input={s.primary.copy} />
+            </FadeIn>
           ) : null;
         case "gallery":
-          return s.items ? <Gallery key={i} input={s.items} /> : null;
+          return s.items ? (
+            <FadeIn>
+              <Gallery key={i} input={s.items} />
+            </FadeIn>
+          ) : null;
         default:
           return null;
       }
@@ -28,6 +33,6 @@ export default class SliceZoneUid extends Component {
       <Wrapper>
         <Content>{slice}</Content>
       </Wrapper>
-    )
+    );
   }
 }

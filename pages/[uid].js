@@ -4,6 +4,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import Image from "next/image";
 import SliceZoneUid from "@components/SliceZone/SliceZoneUid";
+import FadeIn from "@components/FadeIn";
 
 export const HeroSection = styled.section`
   width: 100%;
@@ -150,23 +151,25 @@ export default function BrandPage({ data }) {
         />
         <h2>{data.tagline[0].text}</h2>
       </HeroSection>
-      <SliceZoneUid allSlices={data.body} />
-      <VisitSection>
-        <Image
-          src={data.background_image.url}
-          alt={data.background_image.alt}
-          layout="fill"
-          className="visit-image"
-        />
-        <ImageOverlay />
-        <a
-          className="visit-link"
-          href={data.brand_website_url.url}
-          target="_blank"
-        >
-          Visit {data.brand_name[0].text}
-        </a>
-      </VisitSection>
+        <SliceZoneUid allSlices={data.body} />
+      <FadeIn>
+        <VisitSection>
+          <Image
+            src={data.background_image.url}
+            alt={data.background_image.alt}
+            layout="fill"
+            className="visit-image"
+          />
+          <ImageOverlay />
+          <a
+            className="visit-link"
+            href={data.brand_website_url.url}
+            target="_blank"
+          >
+            Visit {data.brand_name[0].text}
+          </a>
+        </VisitSection>
+      </FadeIn>
     </>
   );
 }

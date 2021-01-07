@@ -15,6 +15,7 @@ import Loader from "@components/Loader";
 import Social from "@components/Social";
 import Contact from "@components/Contact";
 import { useMediaQuery } from "@react-hook/media-query";
+import FadeIn from "@components/FadeIn";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -131,7 +132,11 @@ const MyApp = ({ Component, pageProps, router }) => {
               setLoader={setLoader}
               {...pageProps}
             />
-            {router.asPath !== "/showroom" && <Social />}
+            {router.asPath !== "/showroom" && (
+              <FadeIn>
+                <Social />
+              </FadeIn>
+            )}
             <Footer />
           </motion.main>
         </AnimatePresence>

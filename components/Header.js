@@ -42,6 +42,11 @@ const HeaderStyles = styled.header`
     @media screen and (max-width: 768px) {
       flex-direction: column;
     }
+    .button-hide {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 `;
 
@@ -284,7 +289,9 @@ export default function Header({
         <Link href="/showroom">
           <button
             className={
-              router.asPath === "/showroom" ? "showroom-button" : "button"
+              router.asPath === "/showroom"
+                ? "showroom-button button-hide"
+                : "button button-hide"
             }
           >
             Showroom

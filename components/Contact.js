@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RichText } from "prismic-reactjs";
 import { useQuery, gql } from "@apollo/client";
 import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 const CONTACT_QUERY = gql`
   query GetContact {
@@ -20,8 +21,11 @@ const ContactStyles = styled.div`
   width: 100%;
   padding: 0 100px;
   max-width: 700px;
+  @media screen and (max-width: 1080px) {
+    padding: 0 60px;
+  }
   @media screen and (max-width: 480px) {
-    padding: 30px;
+    padding: 0 30px;
   }
   .contact-info {
     p {
@@ -32,6 +36,13 @@ const ContactStyles = styled.div`
 
 const Close = styled.div`
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  .button-hide {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 const ContactHeader = styled.h2`
@@ -54,6 +65,9 @@ export default function Contact({ setContactOpen }) {
         <button className="button-alt" onClick={() => setContactOpen(false)}>
           Close
         </button>
+        <Link href="/showroom">
+          <button className="button-alt button-hide">Showroom</button>
+        </Link>
       </Close>
       <ContactStyles>
         <ContactHeader>Get in touch</ContactHeader>

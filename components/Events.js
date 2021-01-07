@@ -14,6 +14,7 @@ const EventHeader = styled.h2`
   font-size: 4rem;
   transform: rotate(-8deg) translate(0%, 20%);
   display: inline-block;
+  margin-top: -50px;
 `;
 
 const EventThumb = styled.div`

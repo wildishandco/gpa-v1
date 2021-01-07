@@ -5,7 +5,7 @@ const BodyContent = styled.div`
   max-width: 780px;
   margin: 0 auto;
   p {
-    margin: 60px auto;
+    margin: 45px auto;
   }
 `;
 

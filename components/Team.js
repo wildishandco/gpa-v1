@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Wrapper from "./Wrapper";
-import { RichText } from "prismic-reactjs";
+import BodyText from "./SliceZone/BodyText";
 
 const TeamInfo = styled.div`
   h2 {
@@ -9,7 +9,7 @@ const TeamInfo = styled.div`
   }
   p {
     max-width: 780px;
-    margin: 50px auto;
+    margin: 30px auto 50px auto;
   }
 `;
 
@@ -41,7 +41,7 @@ export default function Team({ team }) {
     <Wrapper>
       <TeamInfo>
         <h2>{team.data.team[0].text}</h2>
-        {RichText.render(team.data.about_the_team)}
+        <BodyText input={team.data.about_the_team} />
       </TeamInfo>
       <TeamGrid>
         {team.data.body.map((t, i) => (

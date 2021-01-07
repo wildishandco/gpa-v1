@@ -36,7 +36,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AnimatePresence>{loader && <LoaderIndex />}</AnimatePresence>
-      <HeroSection>
+      <HeroSection center>
         <div className="hero-image">
           <Image
             src={homepage.data.hero_image.url}

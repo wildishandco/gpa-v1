@@ -16,7 +16,7 @@ export const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.center ? "center" : "space-between")};
   .hero-image {
     position: absolute;
     top: 0;

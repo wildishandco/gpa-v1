@@ -132,11 +132,7 @@ const MyApp = ({ Component, pageProps, router }) => {
               setLoader={setLoader}
               {...pageProps}
             />
-            {router.asPath !== "/showroom" && (
-              <FadeIn>
-                <Social />
-              </FadeIn>
-            )}
+            {router.asPath !== "/showroom" && <Social />}
             <Footer />
           </motion.main>
         </AnimatePresence>

@@ -69,7 +69,7 @@ const global = css`
       font-size: 16px;
     }
     @media screen and (max-width: 480px) {
-      padding: 12px;
+      margin: 12px;
     }
 
     :hover,
@@ -101,7 +101,7 @@ const global = css`
       font-size: 16px;
     }
     @media screen and (max-width: 480px) {
-      padding: 12px;
+      margin: 12px;
     }
 
     :hover,
@@ -128,12 +128,6 @@ const global = css`
     transition: 0.3s ease;
     text-align: center;
     color: var(--copycolor);
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-    @media screen and (max-width: 480px) {
-      padding: 12px;
-    }
     :after {
       content: ">";
       display: inline-block;
@@ -164,7 +158,7 @@ const global = css`
       font-size: 16px;
     }
     @media screen and (max-width: 480px) {
-      padding: 12px;
+      margin: 12px;
     }
     :hover,
     :focus {

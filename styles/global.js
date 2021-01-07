@@ -35,6 +35,7 @@ const global = css`
   h6 {
     font-family: var(--cooper);
     font-style: normal;
+    line-height: 1.1;
   }
   img {
     width: 100%;

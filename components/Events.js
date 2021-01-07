@@ -15,6 +15,8 @@ const EventHeader = styled.h2`
   transform: rotate(-8deg) translate(0%, 20%);
   display: inline-block;
   margin-top: -50px;
+  position: relative;
+  z-index: 2;
 `;
 
 const EventThumb = styled.div`

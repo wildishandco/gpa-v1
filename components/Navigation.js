@@ -50,6 +50,9 @@ const NavInner = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
   }
+  @media screen and (max-width: 480px) {
+    padding: 20px;
+  }
   .icon-close {
     display: flex;
     width: 100%;

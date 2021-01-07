@@ -23,7 +23,11 @@ export default function BrandQuotes({ quotes }) {
   ]);
 
   return items[1] ? (
-    <AliceCarousel mouseTracking items={items} disableButtonsControls />
+    <AliceCarousel
+      mouseTracking
+      items={items}
+      disableButtonsControls
+    />
   ) : (
     <QuoteThumb>
       <h3>{RichText.asText(quotes[0].brand_quote)}</h3>

@@ -13,11 +13,14 @@ const LoginInner = styled.div`
   background: var(--yellow);
   padding: 50px;
   box-shadow: 10px 10px 1px var(--secondary);
+  @media screen and (max-width: 480px) {
+    padding: 20px;
+  }
   h2 {
     font-size: 4rem;
     text-align: center;
     @media screen and (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
   .password {

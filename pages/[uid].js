@@ -16,7 +16,7 @@ export const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   .hero-image {
     position: absolute;
     top: 0;
@@ -37,10 +37,17 @@ export const HeroSection = styled.section`
     position: relative;
     z-index: 2;
     width: 70%;
-    padding-top: 30vh;
     max-width: 800px;
+    transform: translate(0, -25%);
     @media screen and (max-width: 768px) {
       width: 90%;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
     }
   }
   h2 {
@@ -48,7 +55,7 @@ export const HeroSection = styled.section`
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 30vh 30px 5vh 30px;
+    padding: 0 30px 5vh 30px;
   }
   h1 {
     position: relative;
@@ -144,14 +151,17 @@ export default function BrandPage({ data }) {
           />
           <ImageOverlay />
         </div>
-        <img
-          src={data.brand_logo.url}
-          alt={data.brand_logo.alt}
-          className="brand-logo"
-        />
+        <div></div>
+        <div className="brand-logo">
+          <img
+            src={data.brand_logo.url}
+            alt={data.brand_logo.alt}
+            className="brand-logo"
+          />
+        </div>
         <h2>{data.tagline[0].text}</h2>
       </HeroSection>
-        <SliceZoneUid allSlices={data.body} />
+      <SliceZoneUid allSlices={data.body} />
       <FadeIn>
         <VisitSection>
           <Image

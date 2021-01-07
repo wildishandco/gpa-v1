@@ -21,6 +21,7 @@ const global = css`
     height: 100%;
     overflow-x: hidden;
     position: relative;
+    line-height: 1.55;
     @media screen and (max-width: 768px) {
       font-size: 16px;
     }

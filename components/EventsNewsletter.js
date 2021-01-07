@@ -3,11 +3,8 @@ import styled from "styled-components";
 const NewsletterWrapper = styled.div`
   color: var(--background);
   width: 100%;
-  max-width: 450px;
-  margin: 100px auto;
-  text-align: center;
+  margin: auto;
   p {
-    font-size: 0.9rem;
     margin: 2rem 0;
   }
   form {
@@ -34,16 +31,15 @@ const NewsletterWrapper = styled.div`
       outline: none;
       font-family: var(--cooper);
       font-size: 18px;
-      align-self: ${(props) => (props.left ? "flex-start" : "center")};
+      align-self: flex-start;
       cursor: pointer;
     }
   }
 `;
 
-export default function Newsletter() {
+export default function EventsNewsletter() {
   return (
     <NewsletterWrapper>
-      <h2>Sign up</h2>
       <p>
         Sign up to our newsletter and we will keep you in the loop with
         everything good going on.

@@ -4,10 +4,11 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import styled from "styled-components";
 import { RichText } from "prismic-reactjs";
 import Wrapper from "./Wrapper";
+import EventsNewsletter from "./EventsNewsletter";
 
 const handleDragStart = (e) => e.preventDefault();
 
- const EventHeader = styled.h2`
+const EventHeader = styled.h2`
   font-family: "Candice";
   color: var(--yellow);
   font-size: 4rem;
@@ -66,6 +67,7 @@ export default function Events({ events }) {
         <div className="rich-text">
           {RichText.render(e.primary.event_location)}
         </div>
+        <EventsNewsletter />
       </div>
     </EventThumb>,
   ]);
@@ -94,6 +96,7 @@ export default function Events({ events }) {
           <div className="rich-text">
             {RichText.render(events.data.body[0].primary.event_location)}
           </div>
+          <EventsNewsletter />
         </div>
       </EventThumb>
     </Wrapper>

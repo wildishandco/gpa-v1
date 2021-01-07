@@ -9,12 +9,16 @@ const LoginStyles = styled.section`
 
 const LoginInner = styled.div`
   max-width: 500px;
-  margin: 120px auto 20px auto;
+  margin: 140px auto 60px auto;
   background: var(--yellow);
   padding: 50px;
   box-shadow: 10px 10px 1px var(--secondary);
   h2 {
     font-size: 4rem;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
   .password {
     display: flex;

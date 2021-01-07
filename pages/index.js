@@ -56,7 +56,7 @@ export default function Home({
       </HeroSection>
       {homepage.data.body[0] && <SliceZone allSlices={homepage.data.body} />}
       {events.data.body[0] && <Events events={events} />}
-      {team.data.team[0] && <Team team={team} />}
+      {team.data.body[0] && <Team team={team} />}
       <Brands brands={homepage.data} />
       <ViewBrands
         image={homepage.data.view_brands_image}

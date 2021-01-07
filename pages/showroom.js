@@ -6,6 +6,7 @@ import ProductGrid from "@components/Showroom/ProductGrid";
 import Filter from "@components/Showroom/Filter";
 import Wrapper from "@components/Wrapper";
 import styled from "styled-components";
+import Head from "next/head"
 
 const ShowroomStyles = styled.section`
   display: flex;
@@ -22,18 +23,24 @@ const ShowroomStyles = styled.section`
 export default function Showroom({ products, brands, password, orderForm }) {
   const [brand, setBrand] = useState();
   return (
-    <PasswordProtect showroomPassword={password.data.password}>
-      <Wrapper>
-        <ShowroomStyles>
-          <Filter
-            brands={brands.results}
-            setBrand={setBrand}
-            orderForm={orderForm.data.order.url}
-          />
-          <ProductGrid products={products.results} brand={brand} />
-        </ShowroomStyles>
-      </Wrapper>
-    </PasswordProtect>
+    <>
+      <Head>
+        <title>Showroom | Good People Agency</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <PasswordProtect showroomPassword={password.data.password}>
+        <Wrapper>
+          <ShowroomStyles>
+            <Filter
+              brands={brands.results}
+              setBrand={setBrand}
+              orderForm={orderForm.data.order.url}
+            />
+            <ProductGrid products={products.results} brand={brand} />
+          </ShowroomStyles>
+        </Wrapper>
+      </PasswordProtect>
+    </>
   );
 }
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
 const FilterStyles = styled.form`
@@ -79,15 +78,8 @@ const FilterStyles = styled.form`
 `;
 
 export default function Filter({ brands, setBrand, orderForm }) {
-  const [brandUpdate, setBrandUpdate] = useState();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setBrand(brandUpdate);
-  };
-
   return (
-    <FilterStyles onSubmit={handleSubmit}>
+    <FilterStyles>
       <div className="filter">
         <p style={{ marginBottom: 18 }}>Brands</p>
         {brands.map((b, i) => {
@@ -100,7 +92,9 @@ export default function Filter({ brands, setBrand, orderForm }) {
                   id={b.uid}
                   name="brands"
                   value={b.uid}
-                  onChange={(event) => setBrandUpdate(event.target.value)}
+                  onChange={(event) => {
+                    setBrand(event.target.value);
+                  }}
                 />
                 <span className="checkmark" />
               </label>
@@ -114,17 +108,12 @@ export default function Filter({ brands, setBrand, orderForm }) {
             id="all"
             name="brands"
             value="all"
-            onChange={(event) => setBrandUpdate(event.target.value)}
+            onChange={(event) => {
+              setBrand(event.target.value);
+            }}
           />
           <span className="checkmark" />
         </label>
-        <button
-          style={{ alignSelf: "flex-start", display: "block" }}
-          className="submit"
-          type="submit"
-        >
-          Filter
-        </button>
       </div>
       <div className="filter">
         <form className="order" action={orderForm} method="get" target="_blank">

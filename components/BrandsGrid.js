@@ -8,6 +8,9 @@ const BrandGridStyles = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   margin: 50px auto;
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const BrandThumb = styled.div`

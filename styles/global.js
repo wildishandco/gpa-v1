@@ -59,10 +59,10 @@ const global = css`
     background: none;
     outline: none;
     border: none;
-    padding: 20px;
+    margin: 20px;
     box-sizing: border-box;
     color: var(--background);
-    border: 1px rgba(0, 0, 0, 0) solid;
+    border-bottom: 2px rgba(0, 0, 0, 0) solid;
     transition: 0.3s ease;
     text-align: center;
     @media screen and (max-width: 768px) {
@@ -74,10 +74,8 @@ const global = css`
 
     :hover,
     :focus {
-      border: 1px var(--yellow) solid;
+      border-bottom: 2px var(--yellow) solid;
       outline: none;
-      box-shadow: 5px 5px 1px var(--secondary);
-      background: var(--yellow);
     }
     :active {
       box-shadow: 0px 0px 0px var(--secondary);
@@ -93,10 +91,10 @@ const global = css`
     background: none;
     outline: none;
     border: none;
-    padding: 20px;
+    margin: 20px;
     box-sizing: border-box;
     color: var(--copycolor);
-    border: 1px rgba(0, 0, 0, 0) solid;
+    border-bottom: 2px rgba(0, 0, 0, 0) solid;
     transition: 0.3s ease;
     text-align: center;
     @media screen and (max-width: 768px) {
@@ -108,10 +106,8 @@ const global = css`
 
     :hover,
     :focus {
-      border: 1px var(--yellow) solid;
+      border-bottom: 2px var(--yellow) solid;
       outline: none;
-      box-shadow: 5px 5px 1px var(--secondary);
-      background: var(--yellow);
     }
     :active {
       box-shadow: 0px 0px 0px var(--secondary);
@@ -159,10 +155,10 @@ const global = css`
     outline: none;
     border: none;
     box-sizing: border-box;
-    border: 2px rgba(0, 0, 0, 0) solid;
+    border-bottom: 2px rgba(0, 0, 0, 0) solid;
     transition: 0.3s ease;
     text-align: center;
-    padding: 18px;
+    margin: 20px;
     color: var(--background);
     @media screen and (max-width: 768px) {
       font-size: 16px;
@@ -172,7 +168,7 @@ const global = css`
     }
     :hover,
     :focus {
-      border: 2px solid var(--background);
+      border-bottom: 2px solid var(--background);
     }
   }
 

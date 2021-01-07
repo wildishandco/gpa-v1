@@ -16,6 +16,12 @@ export const OverlayStyles = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  svg {
+    width: 50%;
+    @media screen and (max-width: 480px) {
+      width: 80%;
+    }
+  }
 `;
 
 const Loader = ({ setMenuOpen, setLoader, setContactOpen }) => {
@@ -49,7 +55,7 @@ const Loader = ({ setMenuOpen, setLoader, setContactOpen }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <svg width="302.748" height="113.535" viewBox="0 0 302.748 113.535">
+            <svg viewBox="0 0 302.748 113.535">
               <g data-name="Group 54" transform="translate(-86.306 10.41)">
                 <g transform="translate(86.306 -10.41)">
                   <g>

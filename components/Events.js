@@ -80,12 +80,10 @@ export default function Events({ events }) {
 
   return items[1] ? (
     <Wrapper>
-      <EventHeader>Events</EventHeader>
       <AliceCarousel mouseTracking items={items} disableButtonsControls />
     </Wrapper>
   ) : (
     <Wrapper>
-      <EventHeader>Events</EventHeader>
       <EventThumb onDragStart={handleDragStart}>
         <div className="image-container">
           <Image

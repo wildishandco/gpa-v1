@@ -9,7 +9,7 @@ const LoaderIndex = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <svg width="302.748" height="113.535" viewBox="0 0 302.748 113.535">
+        <svg viewBox="0 0 302.748 113.535">
           <g data-name="Group 54" transform="translate(-86.306 10.41)">
             <g transform="translate(86.306 -10.41)">
               <g>

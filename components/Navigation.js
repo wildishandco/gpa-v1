@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const MENU_QUERY = gql`
   query GetMenu {
-    allBrand_pages {
+    allBrand_pages(sortBy: brand_name_ASC) {
       edges {
         node {
           brand_name

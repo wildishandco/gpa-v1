@@ -109,6 +109,15 @@ export const VisitSection = styled.section`
     z-index: 1;
     font-family: var(--cooper);
     font-size: 3rem;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--background);
+    transition: 0.3s ease;
+    cursor: pointer;
+    :hover {
+      text-decoration: underline;
+    }
     @media screen and (max-width: 768px) {
       font-size: 2.2rem;
       margin: 0 30px;

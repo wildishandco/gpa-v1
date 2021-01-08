@@ -55,6 +55,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   const matches = useMediaQuery("only screen and (min-width: 768px)");
 
   const apolloClient = new ApolloClient({
+    ssrMode: typeof window === "undefined",
     link: PrismicLink({
       uri: process.env.NEXT_PUBLIC_PRISMIC_URL,
     }),

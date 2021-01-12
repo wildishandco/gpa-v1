@@ -134,8 +134,6 @@ export const VisitSection = styled.section`
 `;
 
 export default function BrandPage({ data }) {
-  console.log(data);
-
   return (
     <>
       <Head>

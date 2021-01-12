@@ -5,8 +5,6 @@ import "react-alice-carousel/lib/alice-carousel.css";
 const handleDragStart = (e) => e.preventDefault();
 
 export default function Gallery({ input }) {
-    console.log(input);
-
   const items = input.map((image, i) => [
     <Image
       key={i}

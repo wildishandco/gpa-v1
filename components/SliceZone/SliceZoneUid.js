@@ -20,7 +20,7 @@ export default class SliceZoneUid extends Component {
             </FadeIn>
           ) : null;
         case "gallery":
-          return s.items ? (
+          return s.items[0] ? (
             <FadeIn>
               <Gallery key={i} input={s.items} />
             </FadeIn>

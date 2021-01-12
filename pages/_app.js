@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { PrismicLink } from "apollo-link-prismic";
@@ -15,7 +15,6 @@ import Loader from "@components/Loader";
 import Social from "@components/Social";
 import Contact from "@components/Contact";
 import { useMediaQuery } from "@react-hook/media-query";
-import FadeIn from "@components/FadeIn";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -62,6 +61,17 @@ const MyApp = ({ Component, pageProps, router }) => {
     cache: new InMemoryCache(),
   });
 
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setMenuOpen(false);
+      setContactOpen(false);
+    });
+
+    router.events.on("routeChangeComplete", () => {});
+
+    router.events.on("routeChangeError", () => {});
+  }, []);
+
   return (
     <ApolloProvider client={apolloClient}>
       <Head>
@@ -69,11 +79,11 @@ const MyApp = ({ Component, pageProps, router }) => {
         <link href="static/fonts/fonts.css" rel="stylesheet" />
       </Head>
       <GlobalStyles />
-      <Loader
+      {/* <Loader
         setMenuOpen={setMenuOpen}
         setLoader={setLoader}
         setContactOpen={setContactOpen}
-      />
+      /> */}
       <AnimatePresence>
         {menuOpen && (
           <NavWrapper

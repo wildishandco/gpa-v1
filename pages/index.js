@@ -21,21 +21,19 @@ export default function Home({
   loader,
   setLoader,
 }) {
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 800);
-  }, []);
-
-  console.log(homepage);
-
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoader(false);
+  //   }, 800);
+  // }, []);
+  
   return (
     <>
       <Head>
         <title>Good People Agency</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AnimatePresence>{loader && <LoaderIndex />}</AnimatePresence>
+      {/* <AnimatePresence>{loader && <LoaderIndex />}</AnimatePresence> */}
       <HeroSection center>
         <div className="hero-image">
           <Image
@@ -51,10 +49,13 @@ export default function Home({
           )}
           <ImageOverlay />
         </div>
-        <h1>
+        {/* <h1>
           friends <span className="candice">Not</span> fashion
-        </h1>
+        </h1> */}
       </HeroSection>
+      <FadeIn>
+        <Brands brands={homepage.data} />
+      </FadeIn>
       <FadeIn>
         {homepage.data.body[0] && (
           <FadeIn>
@@ -62,19 +63,16 @@ export default function Home({
           </FadeIn>
         )}
       </FadeIn>
-      {events.data.body[0] && (
-        <FadeIn>
-          <Events events={events} />
-        </FadeIn>
-      )}
       {team.data.body[0] && (
         <FadeIn>
           <Team team={team} />
         </FadeIn>
       )}
-      <FadeIn>
-        <Brands brands={homepage.data} />
-      </FadeIn>
+      {events.data.body[0] && (
+        <FadeIn>
+          <Events events={events} />
+        </FadeIn>
+      )}
       <FadeIn>
         <ViewBrands
           image={homepage.data.view_brands_image}

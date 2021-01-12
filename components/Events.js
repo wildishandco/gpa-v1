@@ -80,7 +80,12 @@ export default function Events({ events }) {
 
   return items[1] ? (
     <Wrapper>
-      <AliceCarousel mouseTracking items={items} disableButtonsControls />
+      <AliceCarousel
+        mouseTracking
+        items={items}
+        disableButtonsControls
+        autoHeight
+      />
     </Wrapper>
   ) : (
     <Wrapper>

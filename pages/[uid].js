@@ -36,8 +36,8 @@ export const HeroSection = styled.section`
     display: inline-block;
     position: relative;
     z-index: 2;
-    width: 70%;
-    max-width: 800px;
+    width: 45%;
+    max-width: 600px;
     transform: translate(0, -25%);
     @media screen and (max-width: 768px) {
       width: 90%;

@@ -7,7 +7,7 @@ const BrandGridStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
   @media screen and (max-width: 480px) {
     grid-template-columns: 1fr 1fr;
   }

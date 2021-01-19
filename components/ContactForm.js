@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ContactFormStyles = styled.div`
+  margin-bottom: 60px;
   form {
     display: flex;
     flex-direction: column;
@@ -67,7 +68,7 @@ export default class ContactForm extends React.Component {
           {status === "SUCCESS" ? (
             <p style={{ color: "var(--copycolor)" }}>Thanks!</p>
           ) : (
-            <button className="submit">Submit</button>
+            <button className="submit">Send</button>
           )}
           {status === "ERROR" && (
             <p style={{ color: "var(--white)", marginTop: 20 }}>

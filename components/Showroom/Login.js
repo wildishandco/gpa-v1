@@ -77,7 +77,9 @@ export default function Login({ setPassword, showroomPassword }) {
             )}
           </form>
           <p style={{ margin: "1.5rem 0" }}>
-            To view this season's showroom, get in touch for the password.
+            To access our digital showroom, fill out the form below and hit
+            send. Alternatively, drop them a line directly via the Get in Touch
+            page.
           </p>
           <ContactForm />
         </LoginInner>

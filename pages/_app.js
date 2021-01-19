@@ -144,7 +144,7 @@ const MyApp = ({ Component, pageProps, router }) => {
               {...pageProps}
             />
             {router.asPath !== "/showroom" && <Social />}
-            <Footer />
+            {/* <Footer /> */}
           </motion.main>
         </AnimatePresence>
       </motion.div>

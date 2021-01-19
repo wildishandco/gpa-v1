@@ -22,7 +22,7 @@ const BrandThumb = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 50%;
     z-index: 2;
     pointer-events: none;
     img {

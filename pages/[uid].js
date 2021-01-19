@@ -36,7 +36,7 @@ export const HeroSection = styled.section`
     display: inline-block;
     position: relative;
     z-index: 2;
-    width: 45%;
+    width: 30%;
     max-width: 600px;
     transform: translate(0, -25%);
     @media screen and (max-width: 768px) {
@@ -88,47 +88,54 @@ export const ImageOverlay = styled.div`
 
 export const VisitSection = styled.section`
   width: 100%;
-  min-height: 70vh;
+  padding-top: 56.25%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   .visit-image {
     z-index: -1;
   }
-  .visit-link {
-    position: relative;
-    z-index: 1;
-    font-family: var(--cooper);
-    font-size: 3rem;
-    color: var(--background);
-    padding: 0 30px;
-    text-align: center;
-    border: none;
-    :hover {
-      text-decoration: underline;
+  .visit-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .visit-link {
+      position: relative;
+      z-index: 1;
+      font-family: var(--cooper);
+      font-size: 3rem;
+      color: var(--background);
+      padding: 0 30px;
+      text-align: center;
+      border: none;
+      :hover {
+        text-decoration: underline;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 2.2rem;
+      }
     }
-    @media screen and (max-width: 768px) {
-      font-size: 2.2rem;
-    }
-  }
-  button {
-    position: relative;
-    z-index: 1;
-    font-family: var(--cooper);
-    font-size: 3rem;
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--background);
-    transition: 0.3s ease;
-    cursor: pointer;
-    :hover {
-      text-decoration: underline;
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 2.2rem;
-      margin: 0 30px;
+    button {
+      position: relative;
+      z-index: 1;
+      font-family: var(--cooper);
+      font-size: 3rem;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--background);
+      transition: 0.3s ease;
+      cursor: pointer;
+      :hover {
+        text-decoration: underline;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 2.2rem;
+        margin: 0 30px;
+      }
     }
   }
 `;
@@ -169,13 +176,15 @@ export default function BrandPage({ data }) {
             className="visit-image"
           />
           <ImageOverlay />
-          <a
-            className="visit-link"
-            href={data.brand_website_url.url}
-            target="_blank"
-          >
-            Visit {data.brand_name[0].text}
-          </a>
+          <div className="visit-inner">
+            <a
+              className="visit-link"
+              href={data.brand_website_url.url}
+              target="_blank"
+            >
+              Visit {data.brand_name[0].text}
+            </a>
+          </div>
         </VisitSection>
       </FadeIn>
     </>

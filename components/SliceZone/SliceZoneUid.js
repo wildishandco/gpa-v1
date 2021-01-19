@@ -11,6 +11,7 @@ export default class SliceZoneUid extends Component {
   render() {
     const { allSlices } = this.props;
     const slice = allSlices.map((s, i) => {
+      console.log(s);
       switch (s.slice_type) {
         // These are the API IDs of the slices
         case "copy":
@@ -21,8 +22,18 @@ export default class SliceZoneUid extends Component {
           ) : null;
         case "gallery":
           return s.items[0] ? (
+            <div style={{ margin: "30px auto" }}>
+              <FadeIn>
+                <Gallery key={i} input={s.items} />
+              </FadeIn>
+            </div>
+          ) : null;
+        case "portrait_gallery":
+          return s.items[0] ? (
             <FadeIn>
-              <Gallery key={i} input={s.items} />
+              <div style={{ maxWidth: 600, margin: "30px auto" }}>
+                <Gallery key={i} input={s.items} />
+              </div>
             </FadeIn>
           ) : null;
         default:
@@ -36,3 +47,5 @@ export default class SliceZoneUid extends Component {
     );
   }
 }
+
+// "portrait_gallery"

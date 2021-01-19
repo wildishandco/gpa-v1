@@ -23,7 +23,10 @@ const HeaderStyles = styled.header`
       width: 200px;
       height: auto;
       cursor: pointer;
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 480px) {
+        width: 120px;
+      }
+      @media screen and (max-width: 350px) {
         display: none;
       }
     }
@@ -32,7 +35,7 @@ const HeaderStyles = styled.header`
       height: auto;
       width: 75px;
       cursor: pointer;
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 350px) {
         display: block;
       }
     }

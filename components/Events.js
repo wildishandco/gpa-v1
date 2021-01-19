@@ -73,7 +73,7 @@ export default function Events({ events }) {
         <div className="rich-text">
           {RichText.render(e.primary.event_location)}
         </div>
-        <EventsNewsletter />
+        <div>SOCIAL LOCKUP TO BE ADDED</div>
       </div>
     </EventThumb>,
   ]);
@@ -105,7 +105,7 @@ export default function Events({ events }) {
           <div className="rich-text">
             {RichText.render(events.data.body[0].primary.event_location)}
           </div>
-          <EventsNewsletter />
+          <div>SOCIAL LOCKUP TO BE ADDED</div>
         </div>
       </EventThumb>
     </Wrapper>

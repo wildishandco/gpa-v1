@@ -77,6 +77,11 @@ const MyApp = ({ Component, pageProps, router }) => {
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/lho7obo.css" />
         <link href="static/fonts/fonts.css" rel="stylesheet" />
+        <link rel="icon" href="/static/favicon.png" />
+        <meta
+          name="description"
+          content="Launched in 2014, Good People Agency is community first and industry second. We credit our success on the relationships we have built with buyers, store owners and brands from California to Christchurch. We don’t work with many brands, but the ones we have chosen, have now become friends. We like to think these brands share our vision, our energy and our commitment to an easy going lifestyle."
+        />
       </Head>
       <GlobalStyles />
       {/* <Loader

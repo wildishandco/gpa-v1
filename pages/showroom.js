@@ -26,7 +26,6 @@ export default function Showroom({ products, brands, password, orderForm }) {
     <>
       <Head>
         <title>Showroom | Good People Agency</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <PasswordProtect showroomPassword={password.data.password}>
         <Wrapper>

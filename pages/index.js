@@ -31,7 +31,6 @@ export default function Home({
     <>
       <Head>
         <title>Good People Agency</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <AnimatePresence>{loader && <LoaderIndex />}</AnimatePresence> */}
       <HeroSection center>

@@ -41,7 +41,7 @@ export default function Team({ team }) {
     <Wrapper>
       <TeamInfo>
         <h2>{team.data.team[0].text}</h2>
-        <BodyText input={team.data.about_the_team} />
+        <BodyText center input={team.data.about_the_team} />
       </TeamInfo>
       <TeamGrid>
         {team.data.body.map((t, i) => (

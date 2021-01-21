@@ -8,22 +8,12 @@ import EventsNewsletter from "./EventsNewsletter";
 
 const handleDragStart = (e) => e.preventDefault();
 
-const EventHeader = styled.h2`
-  font-family: "Candice";
-  color: var(--yellow);
-  font-size: 4rem;
-  transform: rotate(-8deg) translate(0%, 20%);
-  display: inline-block;
-  margin-top: -50px;
-  position: relative;
-  z-index: 2;
-`;
-
 const EventThumb = styled.div`
   display: flex;
   width: 100%;
   background: #000;
   min-height: 500px;
+  margin-bottom: 50px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }

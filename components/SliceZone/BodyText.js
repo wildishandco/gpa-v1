@@ -9,8 +9,10 @@ const BodyContent = styled.div`
   }
 `;
 
-const BodyText = ({ input }) => (
-  <BodyContent>{RichText.render(input)}</BodyContent>
+const BodyText = ({ input, center }) => (
+  <BodyContent style={{ textAlign: center ? "center" : "left" }}>
+    {RichText.render(input)}
+  </BodyContent>
 );
 
 export default BodyText;

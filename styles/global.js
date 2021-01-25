@@ -19,7 +19,7 @@ const global = css`
     font-size: 18px;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     position: relative;
     line-height: 1.55;
     @media screen and (max-width: 768px) {

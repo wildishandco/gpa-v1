@@ -5,7 +5,8 @@ const WrapperWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  height: 100%;
 `;
 
 export default function Wrapper({ children }) {

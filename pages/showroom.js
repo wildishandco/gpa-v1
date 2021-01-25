@@ -6,21 +6,21 @@ import ProductGrid from "@components/Showroom/ProductGrid";
 import Filter from "@components/Showroom/Filter";
 import Wrapper from "@components/Wrapper";
 import styled from "styled-components";
-import Head from "next/head"
+import Head from "next/head";
 
 const ShowroomStyles = styled.section`
   display: flex;
   margin-top: 150px;
   position: relative;
-  max-height: 90vh;
+  /* height: 100%; */
   min-height: 600px;
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    max-height: none;
+    /* max-height: none; */
   }
 `;
 
-export default function Showroom({ products, brands, password, orderForm }) {
+export default function Showroom({ products, brands, password, orderForms }) {
   const [brand, setBrand] = useState();
   return (
     <>
@@ -33,7 +33,7 @@ export default function Showroom({ products, brands, password, orderForm }) {
             <Filter
               brands={brands.results}
               setBrand={setBrand}
-              orderForm={orderForm.data.order.url}
+              orderForms={orderForms.results}
             />
             <ProductGrid products={products.results} brand={brand} />
           </ShowroomStyles>
@@ -52,15 +52,21 @@ export async function getStaticProps() {
     Prismic.Predicates.at("document.type", "brand"),
     { pageSize: 100, orderings: "[my.brand.uid]" }
   );
+
+  const orderForms = await showroomClient.query(
+    Prismic.Predicates.at("document.type", "order_form"),
+    { pageSize: 100 }
+  );
+
   const password = await showroomClient.getSingle("password");
-  const orderForm = await showroomClient.getSingle("order_form");
+  // const orderForms = await showroomClient.getSingle("order_form");
 
   return {
     props: {
       products,
       brands,
       password,
-      orderForm,
+      orderForms,
     },
   };
 }

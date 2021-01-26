@@ -3,9 +3,6 @@ import Image from "next/image";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
-// const MotionImage = motion.custom(styled(Image))`
-// `;
-
 const Grid = styled(motion.div)`
   flex: 75%;
   position: relative;
@@ -28,22 +25,21 @@ const Grid = styled(motion.div)`
     }
     h3 {
       font-size: 1.1rem;
-      margin: 1rem 0;
+      margin: 1rem 0 0 0;
     }
-    .price {
+    .description {
       margin: 1rem 0;
+      font-size: 0.9rem;
     }
     .rrp {
-      font-size: 0.8rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
     }
   }
   .image-hover {
     position: fixed;
     width: 100%;
     height: 100%;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     top: 0;
     left: 0;
     bottom: 0;
@@ -77,7 +73,7 @@ export default function ProductGrid({ products, brand }) {
           });
           setImageModal(true);
         }
-        console.log(p);
+        console.log(p.data);
         return (
           <>
             {p.data.brand.uid === brand || !brand || brand === "all" ? (
@@ -93,10 +89,15 @@ export default function ProductGrid({ products, brand }) {
                     }}
                   />
                   <h3>{p?.data?.product_name[0]?.text}</h3>
-                  <p className="description">{p?.data?.product_description[0]?.text}</p>
-                  <p className="price">{p?.data?.price} GBP</p>
-                  <p className="rrp">RRP: {p?.data?.rrp} GBP</p>
-                  <p className="rrp">ART NO: {p?.data?.article_number}</p>
+                  <p className="description">
+                    {p?.data?.product_description[0]?.text}
+                  </p>
+                  {p?.data?.price?.map((price, i) => (
+                    <p key={i} className="price">
+                      {price?.cost_rrp}
+                    </p>
+                  ))}
+                  <p className="rrp">SKU: {p?.data?.article_number}</p>
                 </div>
                 {imageModal && (
                   <AnimatePresence>

@@ -95,7 +95,7 @@ export default function Events({ events }) {
           <div className="rich-text">
             {RichText.render(events.data.body[0].primary.event_location)}
           </div>
-          <div>SOCIAL LOCKUP TO BE ADDED</div>
+          {/* <div>SOCIAL LOCKUP TO BE ADDED</div> */}
         </div>
       </EventThumb>
     </Wrapper>

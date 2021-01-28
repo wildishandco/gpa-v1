@@ -56,7 +56,7 @@ export default class ContactForm extends React.Component {
           <input
             type="email"
             placeholder="Email"
-            name="_replyto"
+            name="email"
             style={{ width: "100%" }}
           />
           <textarea

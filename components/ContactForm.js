@@ -39,13 +39,13 @@ export default class ContactForm extends React.Component {
       <ContactFormStyles>
         <form
           onSubmit={this.submitForm}
-          action="https://formspree.io/f/xpzokajq"
+          action="https://formspree.io/f/xgepdjzk"
           method="POST"
         >
           <input
             type="hidden"
             name="_subject"
-            value="New message from website"
+            value="Message from website"
           ></input>
           <input
             type="text"

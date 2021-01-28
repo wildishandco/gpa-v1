@@ -65,9 +65,9 @@ export default function Contact({ setContactOpen }) {
         <button className="button-alt" onClick={() => setContactOpen(false)}>
           Close
         </button>
-        <Link href="/showroom">
+        {/* <Link href="/showroom">
           <button className="button-alt button-hide">Showroom</button>
-        </Link>
+        </Link> */}
       </Close>
       <ContactStyles>
         <ContactHeader>Get in touch</ContactHeader>

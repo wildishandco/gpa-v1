@@ -104,6 +104,10 @@ const global = css`
       margin: 12px;
     }
 
+    .hide {
+      display: none;
+    }
+
     :hover,
     :focus {
       border-bottom: 2px var(--yellow) solid;

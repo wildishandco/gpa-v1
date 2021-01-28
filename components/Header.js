@@ -289,7 +289,7 @@ export default function Header({
         </Link>
       </div>
       <div className="right-nav">
-        <Link href="/showroom">
+        {/* <Link href="/showroom">
           <button
             className={
               router.asPath === "/showroom"
@@ -299,7 +299,7 @@ export default function Header({
           >
             Showroom
           </button>
-        </Link>
+        </Link> */}
         <button
           className={
             router.asPath === "/showroom" ? "showroom-button" : "button"

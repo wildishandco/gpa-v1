@@ -7,7 +7,7 @@ const Grid = styled(motion.div)`
   flex: 75%;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   row-gap: 30px;
   column-gap: 30px;
@@ -16,9 +16,16 @@ const Grid = styled(motion.div)`
     flex: 3;
     width: 100%;
   }
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
   .product-thumb {
     div {
       cursor: zoom-in;

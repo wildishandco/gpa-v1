@@ -20,6 +20,12 @@ const ShowroomStyles = styled.section`
   }
 `;
 
+const ShowroomWrapper = styled.div`
+  /* max-width: 1400px; */
+  margin: auto;
+  padding: 0 30px;
+`;
+
 export default function Showroom({ products, brands, password, orderForms }) {
   const [brand, setBrand] = useState();
   return (
@@ -28,7 +34,7 @@ export default function Showroom({ products, brands, password, orderForms }) {
         <title>Showroom | Good People Agency</title>
       </Head>
       <PasswordProtect showroomPassword={password.data.password}>
-        <Wrapper>
+        <ShowroomWrapper>
           <ShowroomStyles>
             <Filter
               brands={brands.results}
@@ -37,7 +43,7 @@ export default function Showroom({ products, brands, password, orderForms }) {
             />
             <ProductGrid products={products.results} brand={brand} />
           </ShowroomStyles>
-        </Wrapper>
+        </ShowroomWrapper>
       </PasswordProtect>
     </>
   );

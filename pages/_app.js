@@ -113,7 +113,7 @@ const MyApp = ({ Component, pageProps, router }) => {
         )}
       </AnimatePresence>
       <motion.div
-        style={{ position: "relative" }}
+        style={{ position: "relative", overflowX: "hidden" }}
         initial={{ x: 0, y: 0 }}
         animate={{
           x: menuOpen

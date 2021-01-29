@@ -24,6 +24,7 @@
     "react-dom": "^17.0.1",
     "react-instagram-authless-feed": "jamesmoriarty/react-instagram-authless-feed#v1.1.1",
     "react-intersection-observer": "^8.31.0",
+    "react-mailchimp-subscribe": "^2.1.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

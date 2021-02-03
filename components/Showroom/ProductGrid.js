@@ -89,8 +89,8 @@ export default function ProductGrid({ products, brand, products_two }) {
                   <Image
                     src={p.data.product_image.url}
                     layout="responsive"
-                    width="100"
-                    height="100"
+                    width={p.data.product_image.dimensions.width}
+                    height={p.data.product_image.dimensions.height}
                     onClick={() => {
                       handleInfoUpdate();
                     }}

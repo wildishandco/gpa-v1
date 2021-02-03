@@ -181,12 +181,9 @@ export default function ProductGrid({ products, brand, products_two }) {
                       exit={{ opacity: 0 }}
                       onClick={() => handleModalClose()}
                     >
-                      <Image
-                        src={info.image}
-                        layout="responsive"
-                        width="100"
-                        height="100"
-                      />
+                      <div>
+                        <img src={info.image} />
+                      </div>
                     </motion.div>
                   </AnimatePresence>
                 )}

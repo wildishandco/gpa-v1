@@ -26,7 +26,13 @@ const ShowroomWrapper = styled.div`
   padding: 0 30px;
 `;
 
-export default function Showroom({ products, brands, password, orderForms }) {
+export default function Showroom({
+  products,
+  brands,
+  password,
+  orderForms,
+  products_two,
+}) {
   const [brand, setBrand] = useState();
   return (
     <>
@@ -41,7 +47,11 @@ export default function Showroom({ products, brands, password, orderForms }) {
               setBrand={setBrand}
               orderForms={orderForms.results}
             />
-            <ProductGrid products={products.results} brand={brand} />
+            <ProductGrid
+              products={products.results}
+              products_two={products_two?.results}
+              brand={brand}
+            />
           </ShowroomStyles>
         </ShowroomWrapper>
       </PasswordProtect>
@@ -52,7 +62,11 @@ export default function Showroom({ products, brands, password, orderForms }) {
 export async function getStaticProps() {
   const products = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100 }
+    { pageSize: 100, page: 1 }
+  );
+  const products_two = await showroomClient.query(
+    Prismic.Predicates.at("document.type", "product"),
+    { pageSize: 100, page: 2 }
   );
   const brands = await showroomClient.query(
     Prismic.Predicates.at("document.type", "brand"),
@@ -73,6 +87,7 @@ export async function getStaticProps() {
       brands,
       password,
       orderForms,
+      products_two,
     },
   };
 }

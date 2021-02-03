@@ -16,23 +16,23 @@ export default class SliceZoneUid extends Component {
         // These are the API IDs of the slices
         case "copy":
           return s.primary.copy ? (
-            <FadeIn>
-              <BodyText key={i} input={s.primary.copy} />
+            <FadeIn key={i}>
+              <BodyText input={s.primary.copy} />
             </FadeIn>
           ) : null;
         case "gallery":
           return s.items[0] ? (
             <div style={{ margin: "30px auto" }}>
-              <FadeIn>
-                <Gallery key={i} input={s.items} />
+              <FadeIn key={i}>
+                <Gallery input={s.items} />
               </FadeIn>
             </div>
           ) : null;
         case "portrait_gallery":
           return s.items[0] ? (
-            <FadeIn>
+            <FadeIn key={i}>
               <div style={{ maxWidth: 600, margin: "30px auto" }}>
-                <Gallery key={i} input={s.items} />
+                <Gallery input={s.items} />
               </div>
             </FadeIn>
           ) : null;

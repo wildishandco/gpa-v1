@@ -59,7 +59,7 @@ const Grid = styled(motion.div)`
   }
 `;
 
-export default function ProductGrid({ products, brand }) {
+export default function ProductGrid({ products, brand, products_two }) {
   const [imageModal, setImageModal] = useState(false);
   const [info, setInfo] = useState({
     image: {},
@@ -74,6 +74,63 @@ export default function ProductGrid({ products, brand }) {
   return (
     <Grid>
       {products.map((p, i) => {
+        function handleInfoUpdate() {
+          setInfo({
+            image: p.data.product_image.url,
+          });
+          setImageModal(true);
+        }
+        console.log(p.data);
+        return (
+          <>
+            {p.data.brand.uid === brand || !brand || brand === "all" ? (
+              <>
+                <div className="product-thumb" key={i}>
+                  <Image
+                    src={p.data.product_image.url}
+                    layout="responsive"
+                    width="100"
+                    height="100"
+                    onClick={() => {
+                      handleInfoUpdate();
+                    }}
+                  />
+                  <h3>{p?.data?.product_name[0]?.text}</h3>
+                  <p className="description">
+                    {p?.data?.product_description[0]?.text}
+                  </p>
+                  {p?.data?.price?.map((price, i) => (
+                    <p key={i} className="price">
+                      {price?.cost_rrp}
+                    </p>
+                  ))}
+                  <p className="rrp">SKU: {p?.data?.article_number}</p>
+                </div>
+                {imageModal && (
+                  <AnimatePresence>
+                    <motion.div
+                      className="image-hover"
+                      key={info.image}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onClick={() => handleModalClose()}
+                    >
+                      <Image
+                        src={info.image}
+                        layout="responsive"
+                        width="100"
+                        height="100"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                )}
+              </>
+            ) : null}
+          </>
+        );
+      })}
+      {products_two?.map((p, i) => {
         function handleInfoUpdate() {
           setInfo({
             image: p.data.product_image.url,

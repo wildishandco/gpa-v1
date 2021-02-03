@@ -52,10 +52,19 @@ const Grid = styled(motion.div)`
     bottom: 0;
     right: 0;
     overflow: scroll;
-    backdrop-filter: blur(2px);
-    padding: 30px;
+    backdrop-filter: blur(1px);
     z-index: 9999;
     cursor: zoom-out;
+    display: flex;
+    justify-content: center;
+    div {
+      max-width: 800px;
+      width: 100%;
+      padding: 30px;
+      img {
+        width: 100%;
+      }
+    }
   }
 `;
 
@@ -76,11 +85,13 @@ export default function ProductGrid({ products, brand, products_two }) {
       {products.map((p, i) => {
         function handleInfoUpdate() {
           setInfo({
-            image: p.data.product_image.url,
+            image: p.data.product_image.url.replace(
+              "?auto=compress,format",
+              ""
+            ),
           });
           setImageModal(true);
         }
-        console.log(p.data);
         return (
           <>
             {p.data.brand.uid === brand || !brand || brand === "all" ? (
@@ -116,12 +127,9 @@ export default function ProductGrid({ products, brand, products_two }) {
                       exit={{ opacity: 0 }}
                       onClick={() => handleModalClose()}
                     >
-                      <Image
-                        src={info.image}
-                        layout="responsive"
-                        width="100"
-                        height="100"
-                      />
+                      <div>
+                        <img src={info.image} />
+                      </div>
                     </motion.div>
                   </AnimatePresence>
                 )}
@@ -146,8 +154,8 @@ export default function ProductGrid({ products, brand, products_two }) {
                   <Image
                     src={p.data.product_image.url}
                     layout="responsive"
-                    width="100"
-                    height="100"
+                    width={info.width}
+                    height={info.height}
                     onClick={() => {
                       handleInfoUpdate();
                     }}

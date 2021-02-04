@@ -34,6 +34,23 @@ export default function Showroom({
   products_two,
 }) {
   const [brand, setBrand] = useState();
+
+  const sortedProducts = products.results.sort((a, b) =>
+    a.data.product_name[0].text > b.data.product_name[0].text
+      ? 1
+      : b.data.product_name[0].text > a.data.product_name[0].text
+      ? -1
+      : 0
+  );
+
+  const sortedProductsTwo = products_two.results.sort((a, b) =>
+    a.data.product_name[0].text > b.data.product_name[0].text
+      ? 1
+      : b.data.product_name[0].text > a.data.product_name[0].text
+      ? -1
+      : 0
+  );
+
   return (
     <>
       <Head>
@@ -48,8 +65,8 @@ export default function Showroom({
               orderForms={orderForms.results}
             />
             <ProductGrid
-              products={products.results}
-              products_two={products_two?.results}
+              products={sortedProducts}
+              products_two={sortedProductsTwo}
               brand={brand}
             />
           </ShowroomStyles>
@@ -62,12 +79,15 @@ export default function Showroom({
 export async function getStaticProps() {
   const products = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 1 }
+    { pageSize: 100, page: 1, orderings: "[my.product.data.product_name]" }
   );
   const products_two = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 2 }
+    { pageSize: 100, page: 2, orderings: "[my.product.uid]" }
   );
+
+  //results[0].data.product_name
+
   const brands = await showroomClient.query(
     Prismic.Predicates.at("document.type", "brand"),
     { pageSize: 100, orderings: "[my.brand.uid]" }

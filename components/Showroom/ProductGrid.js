@@ -97,15 +97,17 @@ export default function ProductGrid({ products, brand }) {
             {p.data.brand.uid === brand || !brand || brand === "all" ? (
               <>
                 <div className="product-thumb" key={i}>
-                  <Image
-                    src={p.data.product_image.url}
-                    layout="responsive"
-                    width={p.data.product_image.dimensions.width}
-                    height={p.data.product_image.dimensions.height}
-                    onClick={() => {
-                      handleInfoUpdate();
-                    }}
-                  />
+                  {p?.data?.product_image?.url && (
+                    <Image
+                      src={p?.data?.product_image?.url}
+                      layout="responsive"
+                      width={p?.data?.product_image?.dimensions?.width || 100}
+                      height={p?.data?.product_image?.dimensions?.height || 100}
+                      onClick={() => {
+                        handleInfoUpdate();
+                      }}
+                    />
+                  )}
                   <h3>{p?.data?.product_name[0]?.text}</h3>
                   <p className="description">
                     {p?.data?.product_description[0]?.text}
@@ -121,14 +123,14 @@ export default function ProductGrid({ products, brand }) {
                   <AnimatePresence>
                     <motion.div
                       className="image-hover"
-                      key={info.image}
+                      key={info?.image}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       onClick={() => handleModalClose()}
                     >
                       <div>
-                        <img src={info.image} />
+                        <img src={info?.image} />
                       </div>
                     </motion.div>
                   </AnimatePresence>

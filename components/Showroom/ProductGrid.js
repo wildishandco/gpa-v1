@@ -115,9 +115,7 @@ export default function ProductGrid({ products, brand }) {
                       {price?.cost_rrp}
                     </p>
                   ))}
-                  <p className="rrp">
-                    Delivery Window: {p?.data?.article_number}
-                  </p>
+                  <p className="rrp">{p?.data?.article_number}</p>
                 </div>
                 {imageModal && (
                   <AnimatePresence>

@@ -45,8 +45,6 @@ export default function Showroom({
       : 0
   );
 
-  console.log(combineProducts);
-
   return (
     <>
       <Head>
@@ -60,10 +58,7 @@ export default function Showroom({
               setBrand={setBrand}
               orderForms={orderForms.results}
             />
-            <ProductGrid
-              products={sortedProducts}
-              brand={brand}
-            />
+            <ProductGrid products={sortedProducts} brand={brand} />
           </ShowroomStyles>
         </ShowroomWrapper>
       </PasswordProtect>

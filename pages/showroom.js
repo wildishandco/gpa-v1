@@ -35,7 +35,9 @@ export default function Showroom({
 }) {
   const [brand, setBrand] = useState();
 
-  const sortedProducts = products.results.sort((a, b) =>
+  const combineProducts = products.results.concat(products_two.results);
+
+  const sortedProducts = combineProducts.sort((a, b) =>
     a.data.product_name[0].text > b.data.product_name[0].text
       ? 1
       : b.data.product_name[0].text > a.data.product_name[0].text
@@ -43,13 +45,7 @@ export default function Showroom({
       : 0
   );
 
-  const sortedProductsTwo = products_two.results.sort((a, b) =>
-    a.data.product_name[0].text > b.data.product_name[0].text
-      ? 1
-      : b.data.product_name[0].text > a.data.product_name[0].text
-      ? -1
-      : 0
-  );
+  console.log(combineProducts);
 
   return (
     <>
@@ -66,7 +62,6 @@ export default function Showroom({
             />
             <ProductGrid
               products={sortedProducts}
-              products_two={sortedProductsTwo}
               brand={brand}
             />
           </ShowroomStyles>
@@ -81,6 +76,7 @@ export async function getStaticProps() {
     Prismic.Predicates.at("document.type", "product"),
     { pageSize: 100, page: 1, orderings: "[my.product.data.product_name]" }
   );
+
   const products_two = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
     { pageSize: 100, page: 2, orderings: "[my.product.uid]" }

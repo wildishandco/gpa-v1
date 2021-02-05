@@ -68,7 +68,7 @@ const Grid = styled(motion.div)`
   }
 `;
 
-export default function ProductGrid({ products, brand, products_two }) {
+export default function ProductGrid({ products, brand }) {
   const [imageModal, setImageModal] = useState(false);
   const [info, setInfo] = useState({
     image: {},
@@ -115,61 +115,9 @@ export default function ProductGrid({ products, brand, products_two }) {
                       {price?.cost_rrp}
                     </p>
                   ))}
-                  <p className="rrp">SKU: {p?.data?.article_number}</p>
-                </div>
-                {imageModal && (
-                  <AnimatePresence>
-                    <motion.div
-                      className="image-hover"
-                      key={info.image}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      onClick={() => handleModalClose()}
-                    >
-                      <div>
-                        <img src={info.image} />
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                )}
-              </>
-            ) : null}
-          </>
-        );
-      })}
-      {products_two?.map((p, i) => {
-        function handleInfoUpdate() {
-          setInfo({
-            image: p.data.product_image.url,
-          });
-          setImageModal(true);
-        }
-        console.log(p.data);
-        return (
-          <>
-            {p.data.brand.uid === brand || !brand || brand === "all" ? (
-              <>
-                <div className="product-thumb" key={i}>
-                  <Image
-                    src={p.data.product_image.url}
-                    layout="responsive"
-                    width={p.data.product_image.dimensions.width}
-                    height={p.data.product_image.dimensions.height}
-                    onClick={() => {
-                      handleInfoUpdate();
-                    }}
-                  />
-                  <h3>{p?.data?.product_name[0]?.text}</h3>
-                  <p className="description">
-                    {p?.data?.product_description[0]?.text}
+                  <p className="rrp">
+                    Delivery Window: {p?.data?.article_number}
                   </p>
-                  {p?.data?.price?.map((price, i) => (
-                    <p key={i} className="price">
-                      {price?.cost_rrp}
-                    </p>
-                  ))}
-                  <p className="rrp">SKU: {p?.data?.article_number}</p>
                 </div>
                 {imageModal && (
                   <AnimatePresence>

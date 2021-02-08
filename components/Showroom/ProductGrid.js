@@ -27,8 +27,18 @@ const Grid = styled(motion.div)`
   }
 
   .product-thumb {
-    div {
-      cursor: zoom-in;
+    .image-container {
+      width: 100%;
+      padding-top: 125%;
+      position: relative;
+      div {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: zoom-in;
+      }
     }
     h3 {
       font-size: 1.1rem;
@@ -87,7 +97,7 @@ export default function ProductGrid({ products, brand }) {
           setInfo({
             image: p.data.product_image.url.replace(
               "?auto=compress,format",
-              ""
+              "?ar=4:5&fit=crop"
             ),
           });
           setImageModal(true);
@@ -98,15 +108,19 @@ export default function ProductGrid({ products, brand }) {
               <>
                 <div className="product-thumb" key={i}>
                   {p?.data?.product_image?.url && (
-                    <Image
-                      src={p?.data?.product_image?.url}
-                      layout="responsive"
-                      width={p?.data?.product_image?.dimensions?.width || 100}
-                      height={p?.data?.product_image?.dimensions?.height || 100}
-                      onClick={() => {
-                        handleInfoUpdate();
-                      }}
-                    />
+                    <div className="image-container">
+                      <Image
+                        src={p?.data?.product_image?.url}
+                        layout="responsive"
+                        width={p?.data?.product_image?.dimensions?.width || 100}
+                        height={
+                          p?.data?.product_image?.dimensions?.height || 100
+                        }
+                        onClick={() => {
+                          handleInfoUpdate();
+                        }}
+                      />
+                    </div>
                   )}
                   <h3>{p?.data?.product_name[0]?.text}</h3>
                   <p className="description">

@@ -4,7 +4,6 @@ import Prismic from "prismic-javascript";
 import PasswordProtect from "@components/Showroom/PasswordProtect";
 import ProductGrid from "@components/Showroom/ProductGrid";
 import Filter from "@components/Showroom/Filter";
-import Wrapper from "@components/Wrapper";
 import styled from "styled-components";
 import Head from "next/head";
 
@@ -32,10 +31,13 @@ export default function Showroom({
   password,
   orderForms,
   products_two,
+  products_three,
 }) {
   const [brand, setBrand] = useState();
 
   const combineProducts = products.results.concat(products_two.results);
+
+  // const combineProducts = [...products?.results, ...products_two?.results, ...products_three?.results]
 
   const sortedProducts = combineProducts.sort((a, b) =>
     a.data.product_name[0].text > b.data.product_name[0].text
@@ -44,6 +46,8 @@ export default function Showroom({
       ? -1
       : 0
   );
+
+  console.log(sortedProducts);
 
   return (
     <>
@@ -69,13 +73,18 @@ export default function Showroom({
 export async function getStaticProps() {
   const products = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 1, orderings: "[my.product.data.product_name]" }
+    { pageSize: 100, page: 1 }
   );
 
   const products_two = await showroomClient.query(
     Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 2, orderings: "[my.product.uid]" }
+    { pageSize: 100, page: 2 }
   );
+
+  // const products_three = await showroomClient.query(
+  //   Prismic.Predicates.at("document.type", "product"),
+  //   { pageSize: 100, page: 3, orderings: "[my.product.uid]" }
+  // );
 
   //results[0].data.product_name
 

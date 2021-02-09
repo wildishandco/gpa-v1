@@ -102,13 +102,13 @@ export default function ProductGrid({ products, brand }) {
                           p?.data?.product_image?.dimensions?.height || 100
                         }
                         onClick={() => {
-                          setImageModal(true);
                           setInfo({
                             image: p.data.product_image.url.replace(
                               "?auto=compress,format",
                               ""
                             ),
                           });
+                          setImageModal(true);
                         }}
                       />
                     </div>
@@ -135,7 +135,12 @@ export default function ProductGrid({ products, brand }) {
                       onClick={() => handleModalClose()}
                     >
                       <div>
-                        <img src={info?.image} />
+                        <Image
+                          src={info?.image}
+                          layout="responsive"
+                          width="100"
+                          height="125"
+                        />
                       </div>
                     </motion.div>
                   </AnimatePresence>

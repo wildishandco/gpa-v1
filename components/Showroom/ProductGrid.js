@@ -62,7 +62,7 @@ const Grid = styled(motion.div)`
     bottom: 0;
     right: 0;
     overflow: scroll;
-    /* backdrop-filter: blur(1px); */
+    backdrop-filter: blur(10px);
     z-index: 9999;
     cursor: zoom-out;
     display: flex;
@@ -124,32 +124,33 @@ export default function ProductGrid({ products, brand }) {
                   ))}
                   <p className="rrp">{p?.data?.article_number}</p>
                 </div>
-                {imageModal && (
-                  <AnimatePresence>
-                    <motion.div
-                      className="image-hover"
-                      key={info?.image}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      onClick={() => handleModalClose()}
-                    >
-                      <div>
-                        <Image
-                          src={info?.image}
-                          layout="responsive"
-                          width="100"
-                          height="125"
-                        />
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                )}
               </>
             ) : null}
           </>
         );
       })}
+      {imageModal && (
+        <AnimatePresence>
+          <motion.div
+            className="image-hover"
+            key={info?.image}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => handleModalClose()}
+          >
+            <div>
+              {/* <Image
+                src={info?.image}
+                layout="responsive"
+                width="100"
+                height="125"
+              /> */}
+              <img src={info?.image} />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      )}
     </Grid>
   );
 }

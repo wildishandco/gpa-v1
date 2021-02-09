@@ -35,7 +35,9 @@ export default function Showroom({
 }) {
   const [brand, setBrand] = useState();
 
-  const combineProducts = products.results.concat(products_two.results);
+  const combineProducts = products?.results
+    .concat(products_two?.results)
+    // .concat(products_three?.results);
 
   // const combineProducts = [...products?.results, ...products_two?.results, ...products_three?.results]
 
@@ -46,8 +48,6 @@ export default function Showroom({
       ? -1
       : 0
   );
-
-  console.log(sortedProducts);
 
   return (
     <>
@@ -81,12 +81,10 @@ export async function getStaticProps() {
     { pageSize: 100, page: 2 }
   );
 
-  // const products_three = await showroomClient.query(
-  //   Prismic.Predicates.at("document.type", "product"),
-  //   { pageSize: 100, page: 3, orderings: "[my.product.uid]" }
-  // );
-
-  //results[0].data.product_name
+  const products_three = await showroomClient.query(
+    Prismic.Predicates.at("document.type", "product"),
+    { pageSize: 100, page: 3 }
+  );
 
   const brands = await showroomClient.query(
     Prismic.Predicates.at("document.type", "brand"),
@@ -99,7 +97,6 @@ export async function getStaticProps() {
   );
 
   const password = await showroomClient.getSingle("password");
-  // const orderForms = await showroomClient.getSingle("order_form");
 
   return {
     props: {

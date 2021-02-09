@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
@@ -62,7 +62,7 @@ const Grid = styled(motion.div)`
     bottom: 0;
     right: 0;
     overflow: scroll;
-    backdrop-filter: blur(1px);
+    /* backdrop-filter: blur(1px); */
     z-index: 9999;
     cursor: zoom-out;
     display: flex;
@@ -71,37 +71,22 @@ const Grid = styled(motion.div)`
       max-width: 800px;
       width: 100%;
       padding: 30px;
-      img {
-        width: 100%;
-      }
+      position: relative;
     }
   }
 `;
 
 export default function ProductGrid({ products, brand }) {
   const [imageModal, setImageModal] = useState(false);
-  const [info, setInfo] = useState({
-    image: {},
-  });
+  const [info, setInfo] = useState({});
   function handleModalClose() {
-    setInfo({
-      image: {},
-    });
+    setInfo({});
     setImageModal(false);
   }
 
   return (
     <Grid>
       {products.map((p, i) => {
-        function handleInfoUpdate() {
-          setInfo({
-            image: p.data.product_image.url.replace(
-              "?auto=compress,format",
-              "?ar=4:5&fit=crop"
-            ),
-          });
-          setImageModal(true);
-        }
         return (
           <>
             {p.data.brand.uid === brand || !brand || brand === "all" ? (
@@ -117,7 +102,13 @@ export default function ProductGrid({ products, brand }) {
                           p?.data?.product_image?.dimensions?.height || 100
                         }
                         onClick={() => {
-                          handleInfoUpdate();
+                          setImageModal(true);
+                          setInfo({
+                            image: p.data.product_image.url.replace(
+                              "?auto=compress,format",
+                              ""
+                            ),
+                          });
                         }}
                       />
                     </div>

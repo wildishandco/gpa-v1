@@ -159,19 +159,19 @@ export default function BrandPage({ data }) {
         <div></div>
         <div className="brand-logo">
           <img
-            src={data.brand_logo.url}
-            alt={data.brand_logo.alt}
+            src={data?.brand_logo?.url}
+            alt={data?.brand_logo?.alt}
             className="brand-logo"
           />
         </div>
-        <h2>{data.tagline[0].text}</h2>
+        <h2>{data?.tagline[0]?.text}</h2>
       </HeroSection>
-      <SliceZoneUid allSlices={data.body} />
+      <SliceZoneUid allSlices={data?.body} />
       <FadeIn>
         <VisitSection>
           <Image
-            src={data.background_image.url}
-            alt={data.background_image.alt}
+            src={data?.background_image?.url}
+            alt={data?.background_image?.alt}
             layout="fill"
             className="visit-image"
           />
@@ -179,10 +179,10 @@ export default function BrandPage({ data }) {
           <div className="visit-inner">
             <a
               className="visit-link"
-              href={data.brand_website_url.url}
+              href={data?.brand_website_url?.url}
               target="_blank"
             >
-              Visit {data.brand_name[0].text}
+              Visit {data?.brand_name[0]?.text}
             </a>
           </div>
         </VisitSection>

@@ -4,19 +4,26 @@ import Link from "next/link";
 import { ImageOverlay } from "../pages/[uid]";
 
 const BrandGridStyles = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin: 50px auto 0 auto;
-  @media screen and (max-width: 480px) {
+  /* @media screen and (max-width: 480px) {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 `;
 
 const BrandThumb = styled.div`
   position: relative;
-  width: 100%;
+  width: 25%;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
   .brand-logo {
     position: absolute;
     top: 50%;

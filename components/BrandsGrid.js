@@ -19,7 +19,7 @@ const BrandGridStyles = styled.div`
 
 const BrandThumb = styled.div`
   position: relative;
-  width: 25%;
+  width: 33.3333%;
   cursor: pointer;
   @media screen and (max-width: 768px) {
     width: 50%;

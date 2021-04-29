@@ -8,7 +8,7 @@ const NewsletterWrapper = styled.div`
   color: var(--background);
   width: 100%;
   max-width: 450px;
-  margin: 100px auto 50px auto;
+  margin: 50px auto 50px auto;
   text-align: center;
   p {
     margin: 2rem 0;

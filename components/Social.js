@@ -14,7 +14,7 @@ const InstaHeading = styled.div`
   text-align: center;
   a {
     svg {
-      margin: 30px auto 50px auto;
+      margin: 30px auto 0px auto;
       fill: var(--yellow);
       transition: 0.3s ease;
       :hover {
@@ -55,9 +55,9 @@ export default function Social() {
             </svg>
           </a>
         </InstaHeading>
-        <ErrorBoundary>
-          <InstaFeed />
-        </ErrorBoundary>
+        {/* <ErrorBoundary>
+          <InstagramFeed />
+        </ErrorBoundary> */}
         <Newsletter />
       </Wrapper>
     </SocialWrapper>

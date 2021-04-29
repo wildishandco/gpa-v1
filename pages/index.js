@@ -87,6 +87,7 @@ export async function getStaticProps() {
   const homepage = await client.getSingle("homepage");
   const team = await client.getSingle("team");
   const events = await client.getSingle("events");
+
   return {
     props: {
       homepage,

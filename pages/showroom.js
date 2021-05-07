@@ -35,9 +35,8 @@ export default function Showroom({
 }) {
   const [brand, setBrand] = useState();
 
-  const combineProducts = products?.results
-    .concat(products_two?.results)
-    // .concat(products_three?.results);
+  const combineProducts = products?.results.concat(products_two?.results);
+  // .concat(products_three?.results);
 
   // const combineProducts = [...products?.results, ...products_two?.results, ...products_three?.results]
 
@@ -54,8 +53,7 @@ export default function Showroom({
       <Head>
         <title>Showroom | Good People Agency</title>
       </Head>
-      <PasswordProtect showroomPassword={""}>
-        {/* // password.data.password */}
+      <PasswordProtect showroomPassword={password.data.password}>
         <ShowroomWrapper>
           <ShowroomStyles>
             <Filter

@@ -24,12 +24,12 @@ const GlobalStyles = createGlobalStyle`
 const NavWrapper = styled(motion.nav)`
   position: fixed;
   width: 100%;
-  height: 100%;
   left: 0;
   top: 0;
   bottom: 0;
   background: var(--secondary);
   z-index: 9999;
+  overflow: scroll;
 `;
 
 const ContactWrapper = styled(motion.nav)`
@@ -114,16 +114,15 @@ const MyApp = ({ Component, pageProps, router }) => {
       </AnimatePresence>
       <motion.div
         style={{ position: "relative", overflowX: "hidden" }}
-        initial={{ x: 0, y: 0 }}
+        initial={{ x: 0 }}
         animate={{
           x: menuOpen
-            ? "100%"
+            ? "-50%"
             : matches && contactOpen
             ? "-50%"
             : !matches && contactOpen
             ? "-100%"
             : 0,
-          y: 0,
         }}
         transition={{ duration: 0.4 }}
       >

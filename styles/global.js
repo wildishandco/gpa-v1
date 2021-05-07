@@ -8,6 +8,7 @@ const global = css`
     --copycolor: #2b2b2b;
     --yellow: #f0b945;
     --secondary: #282528;
+    position: relative;
   }
 
   body {

@@ -54,7 +54,8 @@ export default function Showroom({
       <Head>
         <title>Showroom | Good People Agency</title>
       </Head>
-      <PasswordProtect showroomPassword={password.data.password}>
+      <PasswordProtect showroomPassword={""}>
+        {/* // password.data.password */}
         <ShowroomWrapper>
           <ShowroomStyles>
             <Filter

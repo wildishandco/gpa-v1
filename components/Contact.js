@@ -11,6 +11,14 @@ const CONTACT_QUERY = gql`
       edges {
         node {
           contact
+          wholesale_form {
+            __typename
+            ... on _FileLink {
+              name
+              url
+              size
+            }
+          }
         }
       }
     }
@@ -48,7 +56,7 @@ const Close = styled.div`
 const ContactHeader = styled.h2`
   font-family: "Candice";
   font-size: 3rem;
-  transform: rotate(-4deg);
+  transform: rotate(-4deg) translateX(-30px);
   display: inline-block;
   margin-bottom: 1rem;
 `;
@@ -58,6 +66,8 @@ export default function Contact({ setContactOpen }) {
 
   if (loading) return null;
   if (error) return null;
+
+  console.log(data);
 
   return (
     <>
@@ -74,6 +84,14 @@ export default function Contact({ setContactOpen }) {
         <div className="contact-info">
           {RichText.render(data.allContacts.edges[0].node.contact)}
         </div>
+        <a
+          href={data.allContacts.edges[0].node.wholesale_form.url}
+          target="_blank"
+          style={{ borderBottom: "2px solid black" }}
+        >
+          Download our wholesale account form
+        </a>
+        <div style={{ height: 30 }} />
         <ContactForm />
       </ContactStyles>
     </>

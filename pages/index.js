@@ -16,7 +16,6 @@ export default function Home({
   homepage,
   team,
   events,
-  contact,
   menuOpen,
   setMenuOpen,
   loader,
@@ -28,7 +27,6 @@ export default function Home({
   //   }, 800);
   // }, []);
 
-  console.log(contact);
 
   return (
     <>
@@ -90,7 +88,6 @@ export async function getStaticProps() {
   const homepage = await client.getSingle("homepage");
   const team = await client.getSingle("team");
   const events = await client.getSingle("events");
-  const contact = await client.getSingle("contact");
 
   return {
     props: {

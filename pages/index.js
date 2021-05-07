@@ -94,7 +94,6 @@ export async function getStaticProps() {
       homepage,
       team,
       events,
-      contact,
     },
   };
 }
